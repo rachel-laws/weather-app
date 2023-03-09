@@ -8,11 +8,8 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" />
-  <link
-    rel="stylesheet"
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous"
@@ -23,9 +20,11 @@
 </head>
 
 <body>
+
   <header>
     <h1 class="offscreen">Weather App powered by Open Weather API</h1>
   </header>
+
   <main>
     <section id="searchBar" class='searchBar'>
       <form id="searchBar__form" action="" role="search">
@@ -50,49 +49,59 @@
       </form>
     </section>
     <a href="#currentForecast" class="skip-link">Go to current weather conditions</a>
-    <section
-      id="currentForecast"
+    <section id="currentForecast" class='currentForecast'
       role="region"
-      aria-labelledby="currentConditiions__location">
-      <h2 id="currentForecast__location">Current Weather Forecast</h2>
-      <div id="currentForecast__conditions"></div>
+      aria-labelledby="currentForecast__location">
+      <h2 id="currentForecast__location">Current Weather Conditions</h2>
+      <div id="currentForecast__conditions" class='currentForecast__conditions'>
+
+        <div class="icon" id='icon'>
+          <i class='far fa-sun' aria-hidden='true' title='clear sky'></i>
+        </div>
+        <div class="temp">59°
+          <div class='unit'>F</div>
+        </div>
+        <div class="desc">Clear Sky</div>
+        <div class="feels">Feels like 53°</div>
+        <div class="maxtemp">High 62°</div>
+        <div class="mintemp">Low 39°</div>
+        <div class="humidity">Humidity 44%</div>
+        <div class="wind">Wind 7 mph</div>
+
+      </div>
+
     </section>
     <a href="#weeklyForecast" class="skip-link">Go to weekly weather forecast</a>
     <nav id="navButtons">
-      <button
-        id="getLocation"
+      <button id="getLocation"
         class="navButton"
         title="Get Location"
         aria-label="Get the current weather conditions for your location">
         <i class="fas fa-map-marker-alt"></i>
         <i class="none fas fa-sync fa-spin"></i>
       </button>
-      <button
-        id="home"
+      <button id="home"
         class="navButton"
         title="Home Weather"
         aria-label="Get the current weather conditions for your home location">
         <i class="fas fa-home"></i>
         <i class="none fas fa-sync fa-spin"></i>
       </button>
-      <button
-        id="saveLocation"
+      <button id="saveLocation"
         class="navButton"
         title="Save Location"
         aria-label="Save the current location as your home location">
         <i class="fas fa-save"></i>
         <i class="none fas fa-sync fa-spin"></i>
       </button>
-      <button
-        id="toggleUnits"
+      <button id="toggleUnits"
         class="navButton"
         title="Toggle temperature units"
         aria-label="Toggle between metric and imperial temperature units">
         <i class="fas fa-chart-bar"></i>
         <i class="fas fa-sync none"></i>
       </button>
-      <button
-        id="refresh"
+      <button id="refresh"
         class="navButton"
         title="Refresh weather conditions"
         aria-label="Refresh the current weather conditions">
@@ -101,8 +110,7 @@
       </button>
     </nav>
     <hr />
-    <section
-      id="weeklyForecast"
+    <section id="weeklyForecast"
       role="region"
       aria-labelledby="weeklyForecast__title">
       <h2 class='offscreen' id="weeklyForecast__title">Weekly Forecast</h2>
@@ -111,6 +119,7 @@
     <p id="confirmation" class="offscreen" aria-live="assertive"></p>
   </main>
   <script src="script.js"></script>
+
 </body>
 
 </html>
