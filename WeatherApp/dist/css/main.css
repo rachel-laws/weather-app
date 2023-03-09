@@ -5,8 +5,8 @@
 }
 
 html {
-  background-color: rgb(144, 157, 180);
-  background-image: url("../images/clear.jpg");
+  background-color: rgb(114, 121, 133);
+  background-image: url("../images/clouds.jpg");
   background-size: cover;
   background-blend-mode: overlay;
   color: #fff;
@@ -25,7 +25,6 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0.5rem;
 }
 
 main {
@@ -343,33 +342,38 @@ nav {
 }
 
 .rain {
-  background-color: rgb(144, 157, 180);
+  background-color: rgb(114, 121, 133);
   background-image: url("../images/rain.jpg");
 }
 
 .snow {
-  background-color: rgb(144, 157, 180);
+  background-color: rgb(114, 121, 133);
   background-image: url("../images/snow.jpg");
+  background-position: left;
 }
 
 .night {
-  background-color: midnightblue;
+  background-color: rgb(114, 121, 133);
   background-image: url("../images/night.jpg");
+  background-position: bottom;
 }
 
 .fog {
   background-color: darkslategray;
   background-image: url("../images/fog.jpg");
+  background-position: center;
 }
 
 .clouds {
-  background-color: rgb(144, 157, 180);
+  background-color: rgb(114, 121, 133);
   background-image: url("../images/clouds.jpg");
+  background-position: bottom;
 }
 
 .clear {
-  background-color: rgb(144, 157, 180);
+  background-color: rgb(114, 121, 133);
   background-image: url("../images/clear.jpg");
+  background-position: center;
 }
 
 .zero-vis {

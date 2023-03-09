@@ -6,7 +6,7 @@
 
 html {
   background-color: $bg-color;
-  background-image: url('../images/clear.jpg');
+  background-image: url('../images/clouds.jpg');
   background-size: cover;
   background-blend-mode: overlay;
   color: $font-color;
@@ -22,7 +22,6 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
-  padding: 0.5rem;
 }
 
 main {

@@ -6,24 +6,29 @@
 .snow {
   background-color: $bg-color;
   background-image: url('../images/snow.jpg');
+  background-position: left;
 }
 
 .night {
-  background-color: $night-color;
+  background-color: $bg-color;
   background-image: url('../images/night.jpg');
+  background-position: bottom;
 }
 
 .fog {
   background-color: $fog-color;
   background-image: url('../images/fog.jpg');
+  background-position: center;
 }
 
 .clouds {
   background-color: $bg-color;
   background-image: url('../images/clouds.jpg');
+  background-position: bottom;
 }
 
 .clear {
   background-color: $bg-color;
   background-image: url('../images/clear.jpg');
+  background-position: center;
 }
