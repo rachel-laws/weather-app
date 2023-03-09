@@ -4,7 +4,53 @@
   padding: 0;
 }
 
-body {
-  background-color: $background-color;
+html {
+  background-color: $bg-color;
+  color: $font-color;
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
+  @include mqw(768px) {
+    font-size: 22px;
+  }
+}
+
+body {
+  @include flexCenter;
+  flex-direction: column;
+
+  min-height: 100vh;
+  padding: 0.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  width: 100vw;
+  max-width: 700px;
+  max-height: 1050px;
+
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  background-color: $overlay-color;
+  box-shadow: 1px 1px 2.5px $shadow-color;
+}
+
+img {
+  display: block;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
+  border: 1px solid $border-color;
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block;
 }

@@ -2,4 +2,110 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  background-color: rgb(29, 29, 29);
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+}
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100vw;
+  max-width: 700px;
+  max-height: 1050px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2.5px #fff;
+}
+
+img {
+  display: block;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
+  border: 1px solid lightgray;
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 0;
+  z-index: 1;
+  padding: 14px;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus,
+skip-link:active {
+  top: auto;
+  left: auto;
+}
+
+button {
+  min-width: 48px;
+  min-height: 48px;
+  color: #fff;
+  border: 2px solid lightgray;
+  border-radius: 80px;
+  outline: none;
+  font-size: 1.25rem;
+  font-weight: 900;
+  background-color: transparent;
+}
+@media only screen and (min-width: 768px) {
+  button {
+    font-size: 1.5rem;
+    min-width: 64px;
+    min-height: 64px;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 4px 2px 5px #000;
+  border-color: #fff;
+}
+
+.searchBar {
+  padding: 0.5rem 0.5rem 1.5rem;
 }/*# sourceMappingURL=main.css.map */
