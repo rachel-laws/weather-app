@@ -5,7 +5,10 @@
 }
 
 html {
-  background-color: rgb(113, 113, 113);
+  background-color: rgb(89, 129, 205);
+  background-image: url("../images/clouds.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
   color: #fff;
   font-family: "Quicksand", sans-serif;
   font-size: 16px;
@@ -34,7 +37,7 @@ main {
   max-height: 1050px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 2.5px #fff;
 }
 
@@ -304,6 +307,38 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.weeklyForecast h2 {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
+  .weeklyForecast h2 {
+    font-size: 1.3rem;
+  }
+}
+.weeklyForecast .weeklyForecast__contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  padding: 0.5rem 0;
+  color: #fff;
+}
+.weeklyForecast .weeklyForecast__contents .forecastDay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 375px) {
+  .weeklyForecast .weeklyForecast__contents .forecastDay {
+    font-size: 1rem;
   }
 }
 

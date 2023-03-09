@@ -6,6 +6,9 @@
 
 html {
   background-color: $bg-color;
+  background-image: url('../images/clouds.jpg');
+  background-size: cover;
+  background-blend-mode: overlay;
   color: $font-color;
   font-family: 'Quicksand', sans-serif;
   font-size: 16px;
