@@ -144,4 +144,13 @@ button:focus {
 .searchBar form:focus-within,
 .searchBar form:hover {
   box-shadow: 4px 2px 5px #000;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  padding: 0.5rem 0.25rem;
 }/*# sourceMappingURL=main.css.map */
