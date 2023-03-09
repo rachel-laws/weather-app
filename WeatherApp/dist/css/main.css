@@ -5,8 +5,8 @@
 }
 
 html {
-  background-color: rgb(89, 129, 205);
-  background-image: url("../images/clouds.jpg");
+  background-color: rgb(144, 157, 180);
+  background-image: url("../images/clear.jpg");
   background-size: cover;
   background-blend-mode: overlay;
   color: #fff;
@@ -37,7 +37,7 @@ main {
   max-height: 1050px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 2.5px #fff;
 }
 
@@ -343,12 +343,12 @@ nav {
 }
 
 .rain {
-  background-color: rgb(89, 129, 205);
+  background-color: rgb(144, 157, 180);
   background-image: url("../images/rain.jpg");
 }
 
 .snow {
-  background-color: rgb(89, 129, 205);
+  background-color: rgb(144, 157, 180);
   background-image: url("../images/snow.jpg");
 }
 
@@ -363,12 +363,12 @@ nav {
 }
 
 .clouds {
-  background-color: rgb(89, 129, 205);
+  background-color: rgb(144, 157, 180);
   background-image: url("../images/clouds.jpg");
 }
 
 .clear {
-  background-color: rgb(89, 129, 205);
+  background-color: rgb(144, 157, 180);
   background-image: url("../images/clear.jpg");
 }
 
