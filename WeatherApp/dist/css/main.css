@@ -367,6 +367,11 @@ nav {
   background-image: url("../images/clouds.jpg");
 }
 
+.clear {
+  background-color: rgb(89, 129, 205);
+  background-image: url("../images/clear.jpg");
+}
+
 .zero-vis {
   visibility: hidden;
   opacity: 0;
