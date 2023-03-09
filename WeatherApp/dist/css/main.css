@@ -305,4 +305,36 @@ nav {
     justify-content: center;
     align-items: center;
   }
+}
+
+.weeklyForecast h2 {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
+  .weeklyForecast h2 {
+    font-size: 1.3rem;
+  }
+}
+.weeklyForecast .weeklyForecast__contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  padding: 0.5rem 0;
+  color: #fff;
+}
+.weeklyForecast .weeklyForecast__contents .forecastDay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 375px) {
+  .weeklyForecast .weeklyForecast__contents .forecastDay {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */
