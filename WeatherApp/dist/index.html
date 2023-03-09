@@ -25,8 +25,8 @@
     <h1 class="offscreen">Weather App powered by Open Weather API</h1>
   </header>
 
-  <main>
-    <section id="searchBar" class='searchBar'>
+  <main class='fade-in'>
+    <section id="searchBar" class='searchBar fade-in'>
       <form id="searchBar__form" action="" role="search">
         <label for="searchBar__text" class="offscreen"></label>
         <input
@@ -49,7 +49,7 @@
       </form>
     </section>
     <a href="#currentForecast" class="skip-link">Go to current weather conditions</a>
-    <section id="currentForecast" class='currentForecast'
+    <section id="currentForecast" class='currentForecast fade-in'
       role="region"
       aria-labelledby="currentForecast__location">
       <h2 id="currentForecast__location">Current Weather Conditions</h2>
@@ -72,7 +72,7 @@
 
     </section>
     <a href="#weeklyForecast" class="skip-link">Go to weekly weather forecast</a>
-    <nav id="navButtons">
+    <nav id="navButtons" class='fade-in'>
       <button id="getLocation"
         class="navButton"
         title="Get Location"
@@ -109,8 +109,8 @@
         <i class="fas fa-sync fa-spin none"></i>
       </button>
     </nav>
-    <hr />
-    <section id="weeklyForecast"
+    <hr class='fade-in'/>
+    <section id="weeklyForecast class='fade-in'"
       role="region"
       aria-labelledby="weeklyForecast__title">
       <h2 class='offscreen' id="weeklyForecast__title">Weekly Forecast</h2>
