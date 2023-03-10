@@ -19,6 +19,6 @@ const updateWeatherLocationHeader = msg => {
   h1.textContent = msg;
 };
 
-const updateSRConfirmation = msg => {
+export const updateSRConfirmation = msg => {
   document.getElementById('confirmation').textContent = msg;
 };

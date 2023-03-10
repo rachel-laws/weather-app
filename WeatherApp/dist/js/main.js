@@ -1,22 +1,45 @@
-import { setLocationObj, getHomeLocation } from './dataFunctions.js';
-import { addSpinner, displayError } from './domFunctions.js';
+import { setLocationObj, getHomeLocation, cleanText } from './dataFunctions.js';
+
+import {
+  addSpinner,
+  displayError,
+  updateSRConfirmation,
+} from './domFunctions.js';
+
 import CurrentLocation from './CurrentLocation.js';
 
 const currentLoc = new CurrentLocation();
 
 const initApp = () => {
   // Event Listeners
-  const geoButton = document.getElementById('getLocation');
-  geoButton.addEventListener('click', getGeoWeather);
+
+  const locationEntry = document.getElementById('searchBar__form');
+  locationEntry.addEventListener('submit', submitNewLocation);
+
   const homeButton = document.getElementById('home');
   homeButton.addEventListener('click', loadWeather);
-  const saveButton = document.getElementById('saveLocation')
+
+  const geoButton = document.getElementById('getLocation');
+  geoButton.addEventListener('click', getGeoWeather);
+
+  const refreshButton = document.getElementById('refresh');
+  refreshButton.addEventListener('click', refreshWeather);
+
+  const unitButton = document.getElementById('unit');
+  unitButton.addEventListener('click', setUnitPref);
+
+  const saveButton = document.getElementById('saveLocation');
+  saveButton.addEventListener('click', saveLocation);
+
   // Set up
+
   // Load weather
   loadWeather();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
+
+// Get weather from location
 
 const getGeoWeather = event => {
   if (event) {
@@ -52,6 +75,7 @@ const geoSuccess = position => {
 };
 
 // Load weather
+
 const loadWeather = event => {
   const savedLocation = getHomeLocation();
   if (!savedLocation && !event) return getGeoWeather();
@@ -73,6 +97,7 @@ const loadWeather = event => {
 };
 
 // Display home weather
+
 const displayHomeLocationWeather = home => {
   if (typeof home === 'string') {
     const locationJson = JSON.parse(home);
@@ -87,6 +112,51 @@ const displayHomeLocationWeather = home => {
   }
 };
 
+// Save location
+
+const saveLocation = () => {
+  if (currentLoc.getLat() && currentLoc.getLon()) {
+    const saveIcon = document.querySelector('.fa-download');
+    addSpinner(saveIcon);
+    const location = {
+      lat: currentLoc.getLat(),
+      lon: currentLoc.getLon(),
+      name: currentLoc.getName(),
+      unit: currentLoc.getUnit(),
+    };
+    localStorage.setItem('defaultWeatherLocation', JSON.stringify(location));
+    updateSRConfirmation(`Saved ${currentLoc.getName()} as home location`);
+  }
+};
+
+// Toggle temperature units
+
+const setUnitPref = () => {
+  const unitIcon = document.querySelector('.fa-square-poll-vertical');
+  addSpinner(unitIcon);
+  currentLoc.toggleUnit();
+  updateDataDisplay(currentLoc);
+};
+
+// Refresh weather
+
+const refreshWeather = () => {
+  const refreshIcon = document.querySelector('.fa-sync-alt');
+  addSpinner(refreshIcon);
+  updateDataDisplay(currentLoc);
+};
+
+// Enter location from search bar
+
+const submitNewLocation = async event => {
+  event.preventDefault();
+  const text = document.getElementById('searchBar__text').value;
+  const entryText = cleanText(text);
+  // Return if no text
+  if (!entryText.length) return;
+};
+
+// Update data and display
 const updateDataDisplay = async locationObj => {
   // const weatherJson = await getWeatherFromCoords(locationObj);
   // if (weatherJson) updateDisplay(weatherJson, locationObj);
