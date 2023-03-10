@@ -375,17 +375,17 @@ nav {
   }
 }
 
-.weeklyForecast h2 {
+.dailyForecast h2 {
   font-size: 1.1rem;
   text-align: center;
   margin-top: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
-  .weeklyForecast h2 {
+  .dailyForecast h2 {
     font-size: 1.3rem;
   }
 }
-.weeklyForecast .weeklyForecast__contents {
+.dailyForecast .dailyForecast__contents {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -394,7 +394,7 @@ nav {
   padding: 0.5rem 0;
   color: #e2e2e2;
 }
-.weeklyForecast .weeklyForecast__contents .forecastDay {
+.dailyForecast .dailyForecast__contents .forecastDay {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -402,7 +402,7 @@ nav {
   font-size: 0.9rem;
 }
 @media only screen and (min-width: 375px) {
-  .weeklyForecast .weeklyForecast__contents .forecastDay {
+  .dailyForecast .dailyForecast__contents .forecastDay {
     font-size: 1rem;
   }
 }

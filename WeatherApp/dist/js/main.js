@@ -1,6 +1,7 @@
 import {
   setLocationObj,
   getHomeLocation,
+  getWeatherFromCoords,
   getCoordsFromApi,
   cleanText,
 } from './dataFunctions.js';
@@ -50,23 +51,23 @@ document.addEventListener('DOMContentLoaded', initApp);
 const getGeoWeather = event => {
   if (event) {
     if (event.type === 'click') {
-      // Loading animation
       const mapIcon = document.querySelector('.fa-map-marker-alt');
+      // Loading animation
       addSpinner(mapIcon);
     }
   }
-  // Location success / error
+  // Get location
   if (!navigator.geolocation) return geoError();
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 };
 
-// Location error
+// Error: Unable to get location
 const geoError = errObj => {
   const errMsg = errObj ? errObj.message : 'Location not supported';
   displayError(errMsg, errMsg);
 };
 
-// Location success
+// Get location success
 const geoSuccess = position => {
   const coordsObj = {
     lat: position.coords.latitude,
@@ -75,8 +76,8 @@ const geoSuccess = position => {
   };
   // Location object
   setLocationObj(currentLoc, coordsObj);
-  console.log(currentLoc);
-  // Update data and display
+
+  // Update location data and display
   updateDataDisplay(currentLoc);
 };
 
@@ -84,15 +85,18 @@ const geoSuccess = position => {
 const loadWeather = event => {
   const savedLocation = getHomeLocation();
   if (!savedLocation && !event) return getGeoWeather();
-  // Errors
+
+  // Error: No saved home location
   if (!savedLocation && event.type === 'click') {
     displayError(
       'No saved home location',
       'Please save your home location first.'
     );
+
     // Load saved location without click
   } else if (savedLocation && !event) {
     displayHomeLocationWeather(savedLocation);
+
     // Load saved location with click
   } else {
     const homeIcon = document.querySelector('.fa-home');
@@ -101,7 +105,7 @@ const loadWeather = event => {
   }
 };
 
-// Display home weather
+// Display home location weather
 const displayHomeLocationWeather = home => {
   if (typeof home === 'string') {
     const locationJson = JSON.parse(home);
@@ -116,7 +120,7 @@ const displayHomeLocationWeather = home => {
   }
 };
 
-// Save location
+// Save new home location
 const saveLocation = () => {
   if (currentLoc.getLat() && currentLoc.getLon()) {
     const saveIcon = document.querySelector('.fa-download');
@@ -132,7 +136,7 @@ const saveLocation = () => {
   }
 };
 
-// Toggle temperature units
+// Toggle temperature units (°F | °C)
 const setUnitPref = () => {
   const unitIcon = document.querySelector('.fa-square-poll-vertical');
   addSpinner(unitIcon);
@@ -147,28 +151,38 @@ const refreshWeather = () => {
   updateDataDisplay(currentLoc);
 };
 
-// Enter location from search bar
+// Enter new location from search bar
 const submitNewLocation = async event => {
   event.preventDefault();
   const text = document.getElementById('searchBar__text').value;
   const entryText = cleanText(text);
-  // Return if no text
+
+  // Error: No text entry
   if (!entryText.length) return;
   const locationIcon = document.querySelector('.fa-magnifying-glass');
   addSpinner(locationIcon);
-  // Retrieve API data
+
+  // Retrieve data from API
   const coordsData = await getCoordsFromApi(entryText, currentLoc.getUnit());
-  // Success
+
+  // Success -> Update location
   if (coordsData) {
     if (coordsData.cod === 200) {
-      // API data
-      const coordsObj = {};
+      const coordsObj = {
+        lat: coordsData.coord.lat,
+        lon: coordsData.coord.lon,
+        name: coordsData.sys.country
+          ? `${coordsData.name}, ${coordsData.sys.country}`
+          : coordsData.name,
+      };
       setLocationObj(currentLoc, coordsObj);
       updateDataDisplay(currentLoc);
-      // Error
+
+      // Error: Unable to get specific location info
     } else {
       displayApiError(coordsData);
     }
+    // Error: Data connection
   } else {
     displayError('Connection Error', 'Connection Error');
   }
@@ -176,6 +190,7 @@ const submitNewLocation = async event => {
 
 // Update data and display
 const updateDataDisplay = async locationObj => {
-  // const weatherJson = await getWeatherFromCoords(locationObj);
-  // if (weatherJson) updateDisplay(weatherJson, locationObj);
+  const weatherJson = await getWeatherFromCoords(locationObj);
+
+  if (weatherJson) updateDisplay(weatherJson, locationObj);
 };

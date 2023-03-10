@@ -1,3 +1,5 @@
+import { setLocationObj } from './dataFunctions';
+
 export const setPlaceholderText = () => {
   const input = document.getElementById('searchBar__text');
   window.innerWidth < 400
@@ -42,4 +44,38 @@ const updateWeatherLocationHeader = msg => {
 
 export const updateSRConfirmation = msg => {
   document.getElementById('confirmation').textContent = msg;
+};
+
+export const updateDisplay = (weatherJson, locationObj) => {
+  fadeDisplay();
+  clearDisplay();
+  fadeDisplay();
+};
+
+const fadeDisplay = () => {
+  const currentForecast = document.getElementById('currentForecast');
+  currentForecast.classList.toggle('zero-vis');
+  currentForecast.classList.toggle('fade-in');
+
+  const dailyForecast = document.getElementById('dailyForecast');
+  dailyForecast.classList.toggle('zero-vis');
+  dailyForecast.classList.toggle('fade-in');
+};
+
+const clearDisplay = () => {
+  const currentConditions = document.getElementById(
+    'currentForecast__conditions'
+  );
+  deleteContents(currentConditions);
+
+  const dailyConditions = document.getElementById('dailyForecast__conditions');
+  deleteContents(dailyConditions);
+};
+
+const deleteContents = parentElement => {
+  let child = parentElement.lastElementChild;
+  while (child) {
+    parentElement.removeChild(child);
+    child = parentElement.lastElementChild;
+  }
 };
