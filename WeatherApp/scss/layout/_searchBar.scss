@@ -1,24 +1,23 @@
 .searchBar {
-  padding: 0.5rem 0.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
 
   form {
     display: flex;
     justify-content: space-between;
 
-    border: 2px solid $border-color;
+    border: 1px solid $border-color;
     border-radius: 500px;
 
     .searchBar__text {
       flex-grow: 1;
-      width: calc(100% - 52px); // 52px for button width
+      width: calc(100% - 104px); // 2x button width
       margin-right: 0.25rem;
-      padding: 0.75rem 0.75rem 0.75rem 1.75rem;
-
+      padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+      font-size: 1rem;
+      color: $font-color;
       border: none;
       outline: none;
       background-color: $button-color;
-      font-size: 1.25rem;
-      color: $font-color;
     }
 
     .searchBar__text::placeholder {
@@ -36,12 +35,14 @@
 
     .searchBar__button:hover,
     .searchBar__button:focus {
+      transition: 250ms ease;
       box-shadow: none;
       text-shadow: 4px 2px 5px $text-shadow-color;
     }
   }
   form:focus-within,
   form:hover {
+    transition: 250ms ease;
     box-shadow: 4px 2px 5px $text-shadow-color;
   }
 }

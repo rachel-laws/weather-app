@@ -3,12 +3,6 @@
   opacity: 0;
 }
 
-.fade-in {
-  visibility: visible;
-  opacity: 1;
-  animation: fadeInOpacity 1.5s 1 ease-in;
-}
-
 @keyframes fadeInOpacity {
   0% {
     opacity: 0;
@@ -16,4 +10,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInOpacity 1.5s 1 ease-in;
 }

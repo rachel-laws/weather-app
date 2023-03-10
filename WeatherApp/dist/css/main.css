@@ -5,12 +5,14 @@
 }
 
 html {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/clouds.jpg");
+  background: rgba(42, 69, 110, 0.3);
+  background-image: url("../images/Night.webp");
   background-size: cover;
+  background-repeat: none;
   background-blend-mode: overlay;
+  background-position: 60%;
   color: #fff;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 @media only screen and (min-width: 768px) {
@@ -36,8 +38,21 @@ main {
   max-height: 1050px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 2.5px #fff;
+}
+@media only screen and (min-width: 768px) {
+  main {
+    width: 70vw;
+    margin-block: 1.5rem;
+    max-width: 1000px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  @supports (backdrop-filter: blur(5px)) {
+    main {
+      backdrop-filter: blur(5px);
+    }
+  }
 }
 
 img {
@@ -69,7 +84,7 @@ hr {
   left: 0;
   z-index: 1;
   padding: 14px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
 }
 
@@ -83,7 +98,7 @@ button {
   min-width: 48px;
   min-height: 48px;
   color: #fff;
-  border: 2px solid lightgray;
+  border: 1px solid lightgray;
   border-radius: 80px;
   outline: none;
   font-size: 1.25rem;
@@ -104,29 +119,30 @@ button:hover {
 
 button:hover,
 button:focus {
-  box-shadow: 4px 2px 5px #000;
+  transition: 250ms ease;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
   border-color: #fff;
 }
 
 .searchBar {
-  padding: 0.5rem 0.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
 }
 .searchBar form {
   display: flex;
   justify-content: space-between;
-  border: 2px solid lightgray;
+  border: 1px solid lightgray;
   border-radius: 500px;
 }
 .searchBar form .searchBar__text {
   flex-grow: 1;
-  width: calc(100% - 52px);
+  width: calc(100% - 104px);
   margin-right: 0.25rem;
-  padding: 0.75rem 0.75rem 0.75rem 1.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+  font-size: 1rem;
+  color: #fff;
   border: none;
   outline: none;
   background-color: transparent;
-  font-size: 1.25rem;
-  color: #fff;
 }
 .searchBar form .searchBar__text::placeholder {
   color: rgba(255, 255, 255, 0.6);
@@ -140,12 +156,14 @@ button:focus {
 }
 .searchBar form .searchBar__button:hover,
 .searchBar form .searchBar__button:focus {
+  transition: 250ms ease;
   box-shadow: none;
-  text-shadow: 4px 2px 5px #000;
+  text-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
 }
 .searchBar form:focus-within,
 .searchBar form:hover {
-  box-shadow: 4px 2px 5px #000;
+  transition: 250ms ease;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 nav {
@@ -160,12 +178,13 @@ nav {
 .currentForecast h2 {
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 1rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
   font-weight: normal;
 }
 @media only screen and (min-width: 768px) {
   .currentForecast h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 .currentForecast .currentForecast__conditions {
@@ -192,7 +211,7 @@ nav {
   grid-column: 1/span 2;
   font-size: 6rem;
   letter-spacing: 0;
-  text-shadow: 1px 0 5px #000;
+  text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 360px) {
   .currentForecast .currentForecast__conditions .temp {
@@ -226,7 +245,7 @@ nav {
 }
 .currentForecast .currentForecast__conditions .icon i {
   font-size: 3rem;
-  text-shadow: 1px 0 5px #000;
+  text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .icon i {
@@ -342,49 +361,32 @@ nav {
 }
 
 .rain {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/rain.jpg");
+  background-image: url("../images/Rain.webp");
 }
 
 .snow {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/snow.jpg");
-  background-position: left;
+  background-image: url("../images/Snow.webp");
 }
 
 .night {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/night.jpg");
-  background-position: bottom;
+  background-image: url("../images/Night.webp");
 }
 
 .fog {
-  background-color: darkslategray;
-  background-image: url("../images/fog.jpg");
-  background-position: center;
+  background-image: url("../images/Fog.webp");
 }
 
 .clouds {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/clouds.jpg");
-  background-position: bottom;
+  background-image: url("../images/Clouds.webp");
 }
 
 .clear {
-  background-color: rgb(114, 121, 133);
-  background-image: url("../images/clear.jpg");
-  background-position: center;
+  background-image: url("../images/Clear.webp");
 }
 
 .zero-vis {
   visibility: hidden;
   opacity: 0;
-}
-
-.fade-in {
-  visibility: visible;
-  opacity: 1;
-  animation: fadeInOpacity 1.5s 1 ease-in;
 }
 
 @keyframes fadeInOpacity {
@@ -394,4 +396,9 @@ nav {
   100% {
     opacity: 1;
   }
+}
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInOpacity 1.5s 1 ease-in;
 }/*# sourceMappingURL=main.css.map */

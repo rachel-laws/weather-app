@@ -1,34 +1,23 @@
 .rain {
-  background-color: $bg-color;
-  background-image: url('../images/rain.jpg');
+  background-image: url('../images/Rain.webp');
 }
 
 .snow {
-  background-color: $bg-color;
-  background-image: url('../images/snow.jpg');
-  background-position: left;
+  background-image: url('../images/Snow.webp');
 }
 
 .night {
-  background-color: $bg-color;
-  background-image: url('../images/night.jpg');
-  background-position: bottom;
+  background-image: url('../images/Night.webp');
 }
 
 .fog {
-  background-color: $fog-color;
-  background-image: url('../images/fog.jpg');
-  background-position: center;
+  background-image: url('../images/Fog.webp');
 }
 
 .clouds {
-  background-color: $bg-color;
-  background-image: url('../images/clouds.jpg');
-  background-position: bottom;
+  background-image: url('../images/Clouds.webp');
 }
 
 .clear {
-  background-color: $bg-color;
-  background-image: url('../images/clear.jpg');
-  background-position: center;
+  background-image: url('../images/Clear.webp');
 }
