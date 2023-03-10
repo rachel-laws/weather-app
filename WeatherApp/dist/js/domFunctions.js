@@ -7,15 +7,15 @@ export const setPlaceholderText = () => {
 };
 
 // Animate button
-export const addSpinner = icon => {
-  animateButton(icon);
-  setTimeout(animateButton, 1250, icon);
+export const addSpinner = element => {
+  animateButton(element);
+  setTimeout(animateButton, 1250, element);
 };
 
-const animateButton = icon => {
-  icon.classList.toggle('none');
-  icon.nextElementSibling.classList.toggle('block');
-  icon.nextElementSibling.classList.toggle('none');
+const animateButton = element => {
+  element.classList.toggle('none');
+  element.nextElementSibling.classList.toggle('block');
+  element.nextElementSibling.classList.toggle('none');
 };
 
 // Display Error
@@ -68,12 +68,12 @@ export const updateDisplay = (weatherJson, locationObj) => {
   updateWeatherLocationHeader(locationObj.getName());
 
   // Current conditions
-  const currentConditionsArray = createCurrentConditionsDivs(
+  const ccArray = createCurrentConditionsDivs(
     weatherJson,
     locationObj.getUnit()
   );
 
-  displayCurrentConditions(currentConditionsArray);
+  displayCurrentConditions(ccArray);
   // Daily forecast
 
   setFocusOnSearch();
@@ -83,13 +83,13 @@ export const updateDisplay = (weatherJson, locationObj) => {
 
 // Fade display in and out
 const fadeDisplay = () => {
-  const currentForecast = document.getElementById('currentForecast');
-  currentForecast.classList.toggle('zero-vis');
-  currentForecast.classList.toggle('fade-in');
+  const cc = document.getElementById('currentForecast');
+  cc.classList.toggle('zero-vis');
+  cc.classList.toggle('fade-in');
 
-  const dailyForecast = document.getElementById('dailyForecast');
-  dailyForecast.classList.toggle('zero-vis');
-  dailyForecast.classList.toggle('fade-in');
+  const dailyF = document.getElementById('dailyForecast');
+  dailyF.classList.toggle('zero-vis');
+  dailyF.classList.toggle('fade-in');
 };
 
 // Clear current and daily forecast display
@@ -98,8 +98,7 @@ const clearDisplay = () => {
     'currentForecast__conditions'
   );
   deleteContents(currentConditions);
-
-  const dailyConditions = document.getElementById('dailyForecast__conditions');
+  const dailyConditions = document.getElementById('dailyForecast__contents');
   deleteContents(dailyConditions);
 };
 
@@ -169,7 +168,8 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
   const temp = createElement(
     'div',
     'temp',
-    `${Math.round(Number(weatherObj.current.temp))}°`
+    `${Math.round(Number(weatherObj.current.temp))}°`,
+    tempUnit
   );
 
   // Description
@@ -293,10 +293,8 @@ const translateIconToFA = icon => {
 
 // Display current conditions
 const displayCurrentConditions = currentConditionsArray => {
-  const currentConditionsContainer = document.getElementById(
-    'currentForecast__conditions'
-  );
-  currentConditionsArray.forEach(currentConditions => {
-    currentConditionsContainer.appendChild(currentConditions);
+  const ccContainer = document.getElementById('currentForecast__conditions');
+  currentConditionsArray.forEach(cc => {
+    ccContainer.appendChild(cc);
   });
 };

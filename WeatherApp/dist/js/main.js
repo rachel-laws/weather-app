@@ -46,11 +46,11 @@ const initApp = () => {
   loadWeather();
 };
 
-// Update data and display
-export const updateDataDisplay = async locationObj => {
-  const weatherJson = await getWeatherFromCoords(locationObj);
-  if (weatherJson) updateDisplay(weatherJson, locationObj);
-};
+// // Update data and display
+// export const updateDataDisplay = async locationObj => {
+//   const weatherJson = await getWeatherFromCoords(locationObj);
+//   if (weatherJson) updateDisplay(weatherJson, locationObj);
+// };
 
 document.addEventListener('DOMContentLoaded', initApp);
 
@@ -80,9 +80,7 @@ const geoSuccess = position => {
     lon: position.coords.longitude,
     name: `Lat:${position.coords.latitude} Long:${position.coords.longitude}`,
   };
-  // Location object
   setLocationObj(currentLoc, coordsObj);
-
   // Update location data and display
   updateDataDisplay(currentLoc);
 };
@@ -95,7 +93,7 @@ const loadWeather = event => {
   // Error: No saved home location
   if (!savedLocation && event.type === 'click') {
     displayError(
-      'No saved home location',
+      'No home location saved',
       'Please save your home location first.'
     );
 
@@ -195,7 +193,7 @@ const submitNewLocation = async event => {
 };
 
 // // Update data and display
-// const updateDataDisplay = async locationObj => {
-//   const weatherJson = await getWeatherFromCoords(locationObj);
-//   if (weatherJson) updateDisplay(weatherJson, locationObj);
-// };
+const updateDataDisplay = async locationObj => {
+  const weatherJson = await getWeatherFromCoords(locationObj);
+  if (weatherJson) updateDisplay(weatherJson, locationObj);
+};
