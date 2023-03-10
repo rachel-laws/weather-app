@@ -36,7 +36,7 @@ main {
   width: 100vw;
   max-width: 700px;
   max-height: 1050px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 @media only screen and (min-width: 768px) {
   main {
@@ -173,6 +173,7 @@ button:focus {
 .searchBar form {
   display: flex;
   justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 500px;
 }
@@ -185,14 +186,14 @@ button:focus {
   color: #e2e2e2;
   border: none;
   outline: none;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 .searchBar form .searchBar__text::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 .searchBar form .searchBar__button {
   border: none;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   min-width: 35px;
   min-height: 35px;
   padding: 0.5rem;
