@@ -154,6 +154,11 @@ const submitNewLocation = async event => {
   const entryText = cleanText(text);
   // Return if no text
   if (!entryText.length) return;
+  const locationIcon = document.querySelector('.fa-magnifying-glass');
+  addSpinner(locationIcon);
+  // Retrieve API data
+  const coordsData = await getCoordsFromApi(entryText, currentLoc.getUnit());
+  if (coordsData)
 };
 
 // Update data and display
