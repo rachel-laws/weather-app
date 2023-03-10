@@ -43,7 +43,23 @@ const toProperCase = text => {
 // Location header
 const updateWeatherLocationHeader = msg => {
   const h1 = document.getElementById('currentForecast__location');
-  h1.textContent = msg;
+  if (msg.indexOf('Lat:') !== -1 && msg.indexOf('Long:') !== -1) {
+    const msgArray = msg.split(' ');
+    const mapArray = msgArray.map(msg => {
+      return msg.replace(':', ': ');
+    });
+    const lat =
+      mapArray[0].indexOf('-') === -1
+        ? mapArray[0].slice(0, 10)
+        : mapArray[0].slice(0, 11);
+    const lon =
+      mapArray[0].indexOf('-') === -1
+        ? mapArray[1].slice(0, 11)
+        : mapArray[1].slice(0, 12);
+    h1.textContent = `${lat} • ${lon}`;
+  } else {
+    h1.textContent = msg;
+  }
 };
 
 // Screen reader message
@@ -74,7 +90,7 @@ export const updateDisplay = (weatherJson, locationObj) => {
   );
 
   displayCurrentConditions(ccArray);
-  // Daily forecast
+  displayDailyForecast(weatherJson);
 
   setFocusOnSearch();
 
@@ -297,4 +313,64 @@ const displayCurrentConditions = currentConditionsArray => {
   currentConditionsArray.forEach(cc => {
     ccContainer.appendChild(cc);
   });
+};
+
+// Display daily forecast
+const displayDailyForecast = weatherJson => {
+  for (let i = 1; i <= 6; i++) {
+    const dfArray = createDailyForecastDivs(weatherJson.daily[i]);
+    displayDayForecast(dfArray);
+  }
+};
+
+const createDailyForecastDivs = dayWeather => {
+  const dayAbbreviationText = getDayAbbreviation(dayWeather.dt);
+  const dayAbbreviation = createElement(
+    'p',
+    'dayAbbreviation',
+    dayAbbreviationText
+  );
+  const dayIcon = createDailyForecastIcon(
+    dayWeather.weather[0].icon,
+    dayWeather.weather[0].description
+  );
+  const dayHigh = createElement(
+    'p',
+    'dayHigh',
+    `${Math.round(Number(dayWeather.temp.max))}°`
+  );
+  const dayLow = createElement(
+    'p',
+    'dayLow',
+    `${Math.round(Number(dayWeather.temp.min))}°`
+  );
+  return [dayAbbreviation, dayIcon, dayHigh, dayLow];
+};
+
+const getDayAbbreviation = data => {
+  const dateObj = new Date(data * 1000);
+  const utcString = dateObj.toUTCString();
+  return utcString.slice(0, 3).toUpperCase();
+};
+
+const createDailyForecastIcon = (icon, altText) => {
+  const img = document.createElement('img');
+  if (window.innerWidth < 768 || window.innerHeight < 1025) {
+    img.src = `https://openweathermap.org/img/wn/${icon}.png`;
+  } else {
+    img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  }
+  img.alt = altText;
+  return img;
+};
+
+const displayDayForecast = dfArray => {
+  const dayDiv = createElement('div', 'forecastDay');
+  dfArray.forEach(element => {
+    dayDiv.appendChild(element);
+  });
+  const dailyForecastContainer = document.getElementById(
+    'dailyForecast__contents'
+  );
+  dailyForecastContainer.appendChild(dayDiv);
 };

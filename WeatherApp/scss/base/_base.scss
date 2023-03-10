@@ -5,6 +5,12 @@
 }
 
 html {
+  background: $tint-color;
+  background-size: cover;
+  background-repeat: none;
+  background-blend-mode: overlay;
+  background-position: 60%;
+  background-repeat: no-repeat;
   color: $font-color;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -16,12 +22,6 @@ html {
 body {
   @include flexCenter;
   flex-direction: column;
-  background: $tint-color;
-  background-image: url('../images/Night.webp');
-  background-size: cover;
-  background-repeat: none;
-  background-blend-mode: overlay;
-  background-position: 60%;
 
   min-height: 100vh;
 }
@@ -52,7 +52,7 @@ main {
 
 h2 {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
   text-shadow: 2px 2px 3px $text-shadow-color;
   font-size: 1.2rem;
@@ -67,24 +67,31 @@ h2::before {
   content: '';
   position: absolute;
   display: block;
-  inset: 50px 0 0;
+  inset: 35px 0 0;
   width: 50%;
   min-width: 260px;
   margin: auto;
   border-bottom: 1px solid $border-color;
   box-shadow: 2px 2px 3px $text-shadow-color;
+  @include mqw(768px) {
+    inset: 50px 0 0;
+  }
 }
 
 h2::after {
   content: '';
   position: absolute;
   display: block;
-  inset: 55px 0 0;
   width: 48%;
   min-width: 250px;
+  inset: 30px 0 0;
+
   margin: auto;
   border-bottom: 1px solid $border-color;
   box-shadow: 2px 2px 3px $text-shadow-color;
+  @include mqw(768px) {
+    inset: 55px 0 0;
+  }
 }
 
 img {

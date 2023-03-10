@@ -1,5 +1,3 @@
-const WEATHER_API_KEY = 'b4dfd45039a6a4b4d2149e5c4f99934e';
-
 // Set location
 export const setLocationObj = (locationObj, coordsObj) => {
   const { lat, lon, name, unit } = coordsObj;
@@ -21,8 +19,7 @@ export const getWeatherFromCoords = async locationObj => {
   const lat = locationObj.getLat();
   const lon = locationObj.getLon();
   const units = locationObj.getUnit();
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${WEATHER_API_KEY}`;
-
+  const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${WEATHER_API_KEY}`;
   try {
     const weatherStream = await fetch(url);
     const weatherJson = await weatherStream.json();
@@ -36,7 +33,7 @@ export const getWeatherFromCoords = async locationObj => {
 export const getCoordsFromApi = async (entryText, units) => {
   const regex = /^\d+$/g;
   const flag = regex.test(entryText) ? 'zip' : 'q';
-  const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${units}&appid=${WEATHER_API_KEY}`;
+  const url = `https://api.openweathermap.org/data/3.0/onecall?${flag}=${entryText}&units=${units}&appid=${WEATHER_API_KEY}`;
   const encodedUrl = encodeURI(url);
   try {
     const dataStream = await fetch(encodedUrl);
@@ -53,3 +50,5 @@ export const cleanText = text => {
   const entryText = text.replaceAll(regex, ' ').trim();
   return entryText;
 };
+
+const WEATHER_API_KEY = '6d44e9655bca8a80b809620772ae342d';

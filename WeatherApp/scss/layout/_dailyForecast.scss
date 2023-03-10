@@ -12,14 +12,16 @@
   .dailyForecast__contents {
     @include flexCenter;
     flex-grow: 1;
+
     justify-content: space-evenly;
     padding: 0.5rem 0;
     color: $font-color;
 
     .forecastDay {
       display: flex;
-      flex-direction: column;
       justify-content: space-evenly;
+      flex-direction: column;
+
       align-items: center;
       font-size: 0.9rem;
 
