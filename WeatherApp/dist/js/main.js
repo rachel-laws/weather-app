@@ -1,4 +1,6 @@
+import { addSpinner, displayError } from './domFunctions.js';
 import CurrentLocation from './CurrentLocation.js';
+
 const currentLoc = new CurrentLocation();
 
 const initApp = () => {
@@ -22,4 +24,22 @@ const getGeoWeather = event => {
   // Location success / error
   if (!navigator.geolocation) return geoError();
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+};
+
+// Location error
+const geoError = errObj => {
+  const errMsg = errObj ? errObj.message : 'Location not supported';
+  displayError(errMsg, errMsg);
+};
+
+// Location success
+const geoSuccess = position => {
+  const coordsObj = {
+    lat: position.coords.latitude,
+    lon: position.coords.longitude,
+    name: `Lat:${position.coords.latitude} Long:${position.coords.longitude}`,
+  };
+  // Location object
+  setLocationObj(currentLoc, coordsObj);
+  // Update data and display
 };
