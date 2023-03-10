@@ -46,12 +46,6 @@ const initApp = () => {
   loadWeather();
 };
 
-// // Update data and display
-// export const updateDataDisplay = async locationObj => {
-//   const weatherJson = await getWeatherFromCoords(locationObj);
-//   if (weatherJson) updateDisplay(weatherJson, locationObj);
-// };
-
 document.addEventListener('DOMContentLoaded', initApp);
 
 // Get weather from location

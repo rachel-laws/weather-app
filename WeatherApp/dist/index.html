@@ -45,7 +45,7 @@
           title="Enter Location"
           aria-label="Enter Zip Code or City, State, and Country to retrieve weather conditions">
           <i class="fa-solid fa-magnifying-glass searchBar__icon"></i>
-          <i class="fas fa-sync fa-spin none"></i>
+          <i class="fas fa-sync fa-spin search-sync none"></i>
         </button>
       </form>
     </section>
@@ -89,7 +89,7 @@
         title="Toggle temperature units"
         aria-label="Toggle between metric and imperial temperature units">
         <i class="fa-solid fa-square-poll-vertical"></i>
-        <i class="fas fa-sync none"></i>
+        <i class="fas fa-sync fa-spin none"></i>
       </button>
       <button id="saveLocation"
         class="navButton"
@@ -103,7 +103,7 @@
 
     <hr class='fade-in' />
 
-    <section id="dailyForecast" class='fade-in'
+    <section id="dailyForecast" class='dailyForecast fade-in'
       role="region"
       aria-labelledby="dailyForecast__title">
       <h2 class='offscreen' id="dailyForecast__title">Daily Forecast</h2>

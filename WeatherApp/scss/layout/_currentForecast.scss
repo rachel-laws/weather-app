@@ -1,125 +1,107 @@
 .currentForecast {
-
   .currentForecast__conditions {
     display: grid;
-    margin: auto auto 2rem;
-    font-size: 1.1rem;
-
+    margin: 0.5rem auto;
+    font-size: 1.2rem;
     @include mqw(375px) {
       font-size: 1.3rem;
-    }
-    @include mqw(400px) {
-      font-size: 1.7rem;
     }
 
     .temp {
       position: relative;
       @include flexCenter;
-      grid-row: 1 / span 3;
-      grid-column: 1 / span 2;
+      grid-row: 5 / span 3;
+      grid-column: 2 / span 1;
       font-size: 6rem;
       letter-spacing: 0;
       text-shadow: 1px 0 5px $text-shadow-color;
-
-      @include mqw(360px) {
-        font-size: 8rem;
-      }
       @include mqw(768px) {
-        font-size: 9rem;
+        font-size: 8rem;
+        grid-row: 3 / span 2;
       }
 
       .unit {
         position: absolute;
-        top: 55%;
-        left: 85%;
+        top: 30%;
+        left: 80%;
 
         font-size: 1.65rem;
         color: $fade-color;
         text-shadow: none;
-
-        @include mqw(768px) {
-          left: 75%;
-        }
       }
     }
 
     .icon {
       @include flexCenter;
-      grid-row: 1 / span 1;
-      grid-column: 3 / span 2;
+      grid-row: 5 / span 3;
+      grid-column: 3 / span 1;
+      @include mqw(768px) {
+        grid-row: 3 / span 2;
+      }
 
       i {
-        font-size: 3rem;
+        font-size: 6rem;
         text-shadow: 1px 0 5px $text-shadow-color;
         @include mqw(768px) {
-          font-size: 4rem;
+          font-size: 7rem;
         }
       }
     }
 
-    .maxtemp {
+    .minmaxtemp {
       @include flexCenter;
-      grid-row: 2 / span 1;
-      grid-column: 3 / span 2;
-    }
-
-    .mintemp {
-      @include flexCenter;
-      align-self: flex-start;
-      grid-row: 3 / span 1;
-      grid-column: 3 / span 2;
-      color: $fade-color;
-    }
-
-    .desc {
-      @include flexCenter;
-      grid-row: 4 / span 1;
+      font-size: 1.2rem;
+      grid-row: 1 / span 1;
       grid-column: 1 / span 4;
-      padding-top: 0.5rem;
-
-      @include mqMaxWMinH(1024px, 650px) {
-        margin-top: 1.5rem;
-      }
-
-      @include mqh(1080px) {
-        margin-top: 1.5rem;
-      }
+      color: $button-text-color;
     }
 
     .feels,
     .humidity,
     .wind {
+      @include flexCenter;
       padding-top: 0.5rem;
       font-weight: normal;
     }
 
-    .feels {
+    .desc {
       @include flexCenter;
-      grid-row: 5 / span 1;
+      grid-row: 7 / span 1;
       grid-column: 1 / span 4;
+
+      @include mqw(768px) {
+        grid-row: 5 / span 1;
+      }
+
+      @include mqh(1080px) {
+        margin-top: 2rem;
+      }
+    }
+
+    .feels {
+      grid-row: 8 / span 1;
+      grid-column: 1 / span 4;
+      @include mqw(768px) {
+        grid-row: 6 / span 1;
+      }
     }
 
     .humidity {
-      display: none;
-      grid-row: 6 / span 1;
+      grid-row: 9 / span 1;
       grid-column: 1 / span 4;
       color: $fade-color;
-    }
-
-    .wind {
-      display: none;
-      grid-row: 7 / span 1;
-      grid-column: 1 / span 4;
-      color: $fade-color;
-    }
-
-    .humidity,
-    .wind {
-      @include mqMaxWMinH(1024px, 700px) {
-        @include flexCenter;
+      @include mqw(768px) {
+        grid-row: 7 / span 1;
       }
-      @include mqh(1080px) {
-        @include flexCenter;
+    }
+
+    .wind {
+      grid-row: 10 / span 1;
+      grid-column: 1 / span 4;
+      color: $fade-color;
+      margin-bottom: 0.5rem;
+      @include mqw(768px) {
+        grid-row: 8 / span 1;
       }
     }
   }

@@ -164,7 +164,7 @@ const buildScreenReaderWeather = (weatherJson, locationObj) => {
   const tempUnit = unit === 'imperial' ? 'Fahrenheit' : 'Celcius';
   return `${weatherJson.current.weather[0].description} and ${Math.round(
     Number(weatherJson.current.temp)
-  )}°${tempUnit} in ${location}`;
+  )}${tempUnit} in ${location}`;
 };
 
 const setFocusOnSearch = () => {
@@ -173,18 +173,27 @@ const setFocusOnSearch = () => {
 
 // Current conditions
 const createCurrentConditionsDivs = (weatherObj, unit) => {
-  const tempUnit = unit === 'imperial' ? 'F' : 'C';
+  const tempUnit = unit === 'imperial' ? '°F' : '°C';
   const windUnit = unit === 'imperial' ? 'mph' : 'm/s';
   const icon = createMainImgDiv(
     weatherObj.current.weather[0].icon,
     weatherObj.current.weather[0].description
   );
 
+  // Min/Max temp
+  const minMaxTemp = createElement(
+    'div',
+    'minmaxtemp',
+    `High ${Math.round(
+      Number(weatherObj.daily[0].temp.max)
+    )}° • Low ${Math.round(Number(weatherObj.daily[0].temp.min))}`
+  );
+
   // Temperature
   const temp = createElement(
     'div',
     'temp',
-    `${Math.round(Number(weatherObj.current.temp))}°`,
+    `${Math.round(Number(weatherObj.current.temp))}`,
     tempUnit
   );
 
@@ -197,19 +206,6 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
     'div',
     'feels',
     `Feels Like ${Math.round(Number(weatherObj.current.feels_like))}°`
-  );
-  // Max temp
-  const maxTemp = createElement(
-    'div',
-    'maxtemp',
-    `High ${Math.round(Number(weatherObj.daily[0].temp.max))}°`
-  );
-
-  // Max temp
-  const minTemp = createElement(
-    'div',
-    'mintemp',
-    `Low ${Math.round(Number(weatherObj.daily[0].temp.min))}°`
   );
 
   // Humidity
@@ -226,7 +222,7 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
     `Wind ${Math.round(Number(weatherObj.current.wind_speed))} ${windUnit}`
   );
 
-  return [icon, temp, desc, feels, maxTemp, minTemp, humidity, wind];
+  return [minMaxTemp, icon, temp, desc, feels, humidity, wind];
 };
 
 // Weather icon divs

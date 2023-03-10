@@ -2,7 +2,7 @@ nav {
   @include flexCenter;
   flex-grow: 1;
   justify-content: space-evenly;
-  padding: 0.5rem 0.25rem;
+  padding: 0 0.25rem 1rem;
 
   @include mqw(768px) {
     justify-content: center;

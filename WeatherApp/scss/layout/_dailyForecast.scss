@@ -2,8 +2,6 @@
   h2 {
     font-size: 1.1rem;
     text-align: center;
-    margin-top: 0.5rem;
-
     @include mqw(768px) {
       font-size: 1.3rem;
     }
@@ -12,16 +10,15 @@
   .dailyForecast__contents {
     @include flexCenter;
     flex-grow: 1;
-
     justify-content: space-evenly;
+    margin-block: 1.5rem;
     padding: 0.5rem 0;
     color: $font-color;
 
     .forecastDay {
       display: flex;
-      justify-content: space-evenly;
       flex-direction: column;
-
+      justify-content: space-evenly;
       align-items: center;
       font-size: 0.9rem;
 

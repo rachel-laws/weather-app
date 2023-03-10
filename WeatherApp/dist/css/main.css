@@ -17,7 +17,7 @@ html {
 }
 @media only screen and (min-width: 768px) {
   html {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 
@@ -34,17 +34,12 @@ main {
   flex-direction: column;
   flex-grow: 1;
   width: 100vw;
-  max-width: 700px;
-  max-height: 1050px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 @media only screen and (min-width: 768px) {
   main {
     width: 70vw;
-    max-width: 1050px;
-    margin-top: 1.5rem;
-    border-radius: 5px;
-    border: none;
+    max-width: 800px;
     background-color: rgba(0, 0, 0, 0.4);
   }
   @supports (backdrop-filter: blur(5px)) {
@@ -56,7 +51,7 @@ main {
 
 h2 {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
   font-size: 1.2rem;
@@ -72,7 +67,7 @@ h2::before {
   content: "";
   position: absolute;
   display: block;
-  inset: 35px 0 0;
+  inset: 28px 0 0;
   width: 50%;
   min-width: 260px;
   margin: auto;
@@ -81,7 +76,7 @@ h2::before {
 }
 @media only screen and (min-width: 768px) {
   h2::before {
-    inset: 50px 0 0;
+    inset: 35px 0 0;
   }
 }
 
@@ -91,14 +86,14 @@ h2::after {
   display: block;
   width: 48%;
   min-width: 250px;
-  inset: 30px 0 0;
+  inset: 31px 0 0;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   h2::after {
-    inset: 55px 0 0;
+    inset: 38px 0 0;
   }
 }
 
@@ -155,8 +150,8 @@ skip-link:active {
 @media only screen and (min-width: 768px) {
   .navButtons button {
     font-size: 1rem;
-    min-width: 64px;
-    min-height: 64px;
+    min-width: 60px;
+    min-height: 60px;
   }
 }
 
@@ -177,7 +172,7 @@ button:focus {
 }
 @media only screen and (min-width: 768px) {
   .searchBar {
-    padding: 1rem 1.5rem 2rem;
+    padding: 1rem 1.5rem 1rem;
   }
 }
 .searchBar form {
@@ -212,9 +207,8 @@ button:focus {
   font-size: 1.2rem;
   outline: none;
 }
-.searchBar form .searchBar__button i {
-  font-size: 1.2rem;
-  padding-right: 0.5rem;
+.searchBar form i {
+  margin-right: 5px;
 }
 .searchBar form .searchBar__button:hover,
 .searchBar form .searchBar__button:focus {
@@ -235,7 +229,7 @@ nav {
   align-items: center;
   flex-grow: 1;
   justify-content: space-evenly;
-  padding: 0.5rem 0.25rem;
+  padding: 0 0.25rem 1rem;
 }
 @media only screen and (min-width: 768px) {
   nav {
@@ -246,17 +240,12 @@ nav {
 
 .currentForecast .currentForecast__conditions {
   display: grid;
-  margin: auto auto 2rem;
-  font-size: 1.1rem;
+  margin: 0.5rem auto;
+  font-size: 1.2rem;
 }
 @media only screen and (min-width: 375px) {
   .currentForecast .currentForecast__conditions {
     font-size: 1.3rem;
-  }
-}
-@media only screen and (min-width: 400px) {
-  .currentForecast .currentForecast__conditions {
-    font-size: 1.7rem;
   }
 }
 .currentForecast .currentForecast__conditions .temp {
@@ -264,131 +253,116 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 1/span 3;
-  grid-column: 1/span 2;
+  grid-row: 5/span 3;
+  grid-column: 2/span 1;
   font-size: 6rem;
   letter-spacing: 0;
   text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
-@media only screen and (min-width: 360px) {
-  .currentForecast .currentForecast__conditions .temp {
-    font-size: 8rem;
-  }
-}
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .temp {
-    font-size: 9rem;
+    font-size: 8rem;
+    grid-row: 3/span 2;
   }
 }
 .currentForecast .currentForecast__conditions .temp .unit {
   position: absolute;
-  top: 55%;
-  left: 85%;
+  top: 30%;
+  left: 80%;
   font-size: 1.65rem;
   color: rgba(255, 255, 255, 0.6);
   text-shadow: none;
-}
-@media only screen and (min-width: 768px) {
-  .currentForecast .currentForecast__conditions .temp .unit {
-    left: 75%;
-  }
 }
 .currentForecast .currentForecast__conditions .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 1/span 1;
-  grid-column: 3/span 2;
+  grid-row: 5/span 3;
+  grid-column: 3/span 1;
+}
+@media only screen and (min-width: 768px) {
+  .currentForecast .currentForecast__conditions .icon {
+    grid-row: 3/span 2;
+  }
 }
 .currentForecast .currentForecast__conditions .icon i {
-  font-size: 3rem;
+  font-size: 6rem;
   text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .icon i {
-    font-size: 4rem;
+    font-size: 7rem;
   }
 }
-.currentForecast .currentForecast__conditions .maxtemp {
+.currentForecast .currentForecast__conditions .minmaxtemp {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 2/span 1;
-  grid-column: 3/span 2;
+  font-size: 1.2rem;
+  grid-row: 1/span 1;
+  grid-column: 1/span 4;
+  color: rgba(255, 255, 255, 0.8);
 }
-.currentForecast .currentForecast__conditions .mintemp {
+.currentForecast .currentForecast__conditions .feels,
+.currentForecast .currentForecast__conditions .humidity,
+.currentForecast .currentForecast__conditions .wind {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: flex-start;
-  grid-row: 3/span 1;
-  grid-column: 3/span 2;
-  color: rgba(255, 255, 255, 0.6);
+  padding-top: 0.5rem;
+  font-weight: normal;
 }
 .currentForecast .currentForecast__conditions .desc {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 4/span 1;
-  grid-column: 1/span 4;
-  padding-top: 0.5rem;
-}
-@media only screen and (max-width: 1024px) and (min-height: 650px) {
-  .currentForecast .currentForecast__conditions .desc {
-    margin-top: 1.5rem;
-  }
-}
-@media only screen and (min-height: 1080px) {
-  .currentForecast .currentForecast__conditions .desc {
-    margin-top: 1.5rem;
-  }
-}
-.currentForecast .currentForecast__conditions .feels,
-.currentForecast .currentForecast__conditions .humidity,
-.currentForecast .currentForecast__conditions .wind {
-  padding-top: 0.5rem;
-  font-weight: normal;
-}
-.currentForecast .currentForecast__conditions .feels {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-row: 5/span 1;
-  grid-column: 1/span 4;
-}
-.currentForecast .currentForecast__conditions .humidity {
-  display: none;
-  grid-row: 6/span 1;
-  grid-column: 1/span 4;
-  color: rgba(255, 255, 255, 0.6);
-}
-.currentForecast .currentForecast__conditions .wind {
-  display: none;
   grid-row: 7/span 1;
   grid-column: 1/span 4;
-  color: rgba(255, 255, 255, 0.6);
 }
-@media only screen and (max-width: 1024px) and (min-height: 700px) {
-  .currentForecast .currentForecast__conditions .humidity,
-  .currentForecast .currentForecast__conditions .wind {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media only screen and (min-width: 768px) {
+  .currentForecast .currentForecast__conditions .desc {
+    grid-row: 5/span 1;
   }
 }
 @media only screen and (min-height: 1080px) {
-  .currentForecast .currentForecast__conditions .humidity,
+  .currentForecast .currentForecast__conditions .desc {
+    margin-top: 2rem;
+  }
+}
+.currentForecast .currentForecast__conditions .feels {
+  grid-row: 8/span 1;
+  grid-column: 1/span 4;
+}
+@media only screen and (min-width: 768px) {
+  .currentForecast .currentForecast__conditions .feels {
+    grid-row: 6/span 1;
+  }
+}
+.currentForecast .currentForecast__conditions .humidity {
+  grid-row: 9/span 1;
+  grid-column: 1/span 4;
+  color: rgba(255, 255, 255, 0.6);
+}
+@media only screen and (min-width: 768px) {
+  .currentForecast .currentForecast__conditions .humidity {
+    grid-row: 7/span 1;
+  }
+}
+.currentForecast .currentForecast__conditions .wind {
+  grid-row: 10/span 1;
+  grid-column: 1/span 4;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .wind {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-row: 8/span 1;
   }
 }
 
 .dailyForecast h2 {
   font-size: 1.1rem;
   text-align: center;
-  margin-top: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
   .dailyForecast h2 {
@@ -401,13 +375,14 @@ nav {
   align-items: center;
   flex-grow: 1;
   justify-content: space-evenly;
+  margin-block: 1.5rem;
   padding: 0.5rem 0;
   color: #e2e2e2;
 }
 .dailyForecast .dailyForecast__contents .forecastDay {
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   font-size: 0.9rem;
 }
