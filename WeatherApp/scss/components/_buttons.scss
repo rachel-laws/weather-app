@@ -1,4 +1,4 @@
-button {
+.navButtons button {
   min-width: 48px;
   min-height: 48px;
   color: $button-text-color;
@@ -10,7 +10,7 @@ button {
   background-color: $button-color;
 
   @include mqw(768px) {
-    font-size: 1.5rem;
+    font-size: 1rem;
     min-width: 64px;
     min-height: 64px;
   }
@@ -25,4 +25,5 @@ button:focus {
   transition: 250ms ease;
   box-shadow: 4px 2px 5px $text-shadow-color;
   border-color: $font-color;
+  color: $font-color;
 }

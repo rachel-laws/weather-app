@@ -3,4 +3,9 @@ nav {
   flex-grow: 1;
   justify-content: space-evenly;
   padding: 0.5rem 0.25rem;
+
+  @include mqw(768px) {
+    justify-content: center;
+    gap: 2rem;
+  }
 }

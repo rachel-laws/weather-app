@@ -5,13 +5,7 @@
 }
 
 html {
-  background: rgba(42, 69, 110, 0.3);
-  background-image: url("../images/Night.webp");
-  background-size: cover;
-  background-repeat: none;
-  background-blend-mode: overlay;
-  background-position: 60%;
-  color: #fff;
+  color: #e2e2e2;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
@@ -26,6 +20,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: rgba(42, 69, 110, 0.3);
+  background-image: url("../images/Night.webp");
+  background-size: cover;
+  background-repeat: none;
+  background-blend-mode: overlay;
+  background-position: 60%;
   min-height: 100vh;
 }
 
@@ -36,16 +36,14 @@ main {
   width: 100vw;
   max-width: 700px;
   max-height: 1050px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 2.5px #fff;
 }
 @media only screen and (min-width: 768px) {
   main {
     width: 70vw;
-    margin-block: 1.5rem;
-    max-width: 1000px;
+    max-width: 1050px;
+    border-radius: 5px;
+    border: none;
     background-color: rgba(0, 0, 0, 0.4);
   }
   @supports (backdrop-filter: blur(5px)) {
@@ -55,6 +53,44 @@ main {
   }
 }
 
+h2 {
+  position: relative;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  inset: 50px 0 0;
+  width: 50%;
+  min-width: 260px;
+  margin: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  inset: 55px 0 0;
+  width: 48%;
+  min-width: 250px;
+  margin: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
 img {
   display: block;
 }
@@ -62,7 +98,7 @@ img {
 hr {
   width: 90%;
   margin: auto;
-  border: 1px solid lightgray;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .none {
@@ -85,7 +121,7 @@ hr {
   z-index: 1;
   padding: 14px;
   background: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  color: #e2e2e2;
 }
 
 .skip-link:focus,
@@ -94,20 +130,20 @@ skip-link:active {
   left: auto;
 }
 
-button {
+.navButtons button {
   min-width: 48px;
   min-height: 48px;
-  color: #fff;
-  border: 1px solid lightgray;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 80px;
   outline: none;
   font-size: 1.25rem;
   font-weight: 900;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 @media only screen and (min-width: 768px) {
-  button {
-    font-size: 1.5rem;
+  .navButtons button {
+    font-size: 1rem;
     min-width: 64px;
     min-height: 64px;
   }
@@ -121,43 +157,58 @@ button:hover,
 button:focus {
   transition: 250ms ease;
   box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
-  border-color: #fff;
+  border-color: #e2e2e2;
+  color: #e2e2e2;
 }
 
 .searchBar {
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 0.5rem 0.5rem 1.5rem;
+}
+@media only screen and (min-width: 768px) {
+  .searchBar {
+    padding: 1rem 1.5rem 2rem;
+  }
 }
 .searchBar form {
   display: flex;
   justify-content: space-between;
-  border: 1px solid lightgray;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 500px;
 }
 .searchBar form .searchBar__text {
   flex-grow: 1;
   width: calc(100% - 104px);
   margin-right: 0.25rem;
-  padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.75rem;
   font-size: 1rem;
-  color: #fff;
+  color: #e2e2e2;
   border: none;
   outline: none;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .searchBar form .searchBar__text::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 .searchBar form .searchBar__button {
   border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  min-width: 35px;
+  min-height: 35px;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 80px;
+  font-size: 1.2rem;
+  outline: none;
 }
 .searchBar form .searchBar__button i {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   padding-right: 0.5rem;
 }
 .searchBar form .searchBar__button:hover,
 .searchBar form .searchBar__button:focus {
   transition: 250ms ease;
   box-shadow: none;
+  color: #e2e2e2;
   text-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
 }
 .searchBar form:focus-within,
@@ -174,19 +225,13 @@ nav {
   justify-content: space-evenly;
   padding: 0.5rem 0.25rem;
 }
-
-.currentForecast h2 {
-  margin-bottom: 1rem;
-  text-align: center;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-  font-size: 1.2rem;
-  font-weight: normal;
-}
 @media only screen and (min-width: 768px) {
-  .currentForecast h2 {
-    font-size: 1.4rem;
+  nav {
+    justify-content: center;
+    gap: 2rem;
   }
 }
+
 .currentForecast .currentForecast__conditions {
   display: grid;
   margin: auto auto 2rem;
@@ -345,7 +390,7 @@ nav {
   flex-grow: 1;
   justify-content: space-evenly;
   padding: 0.5rem 0;
-  color: #fff;
+  color: #e2e2e2;
 }
 .weeklyForecast .weeklyForecast__contents .forecastDay {
   display: flex;
