@@ -1,5 +1,6 @@
 const WEATHER_API_KEY = 'b4dfd45039a6a4b4d2149e5c4f99934e';
 
+// Set location
 export const setLocationObj = (locationObj, coordsObj) => {
   const { lat, lon, name, unit } = coordsObj;
   locationObj.setLat(lat);
@@ -10,10 +11,12 @@ export const setLocationObj = (locationObj, coordsObj) => {
   }
 };
 
+// Get home location
 export const getHomeLocation = () => {
   return localStorage.getItem('defaultWeatherLocation');
 };
 
+// Get weather from location
 export const getWeatherFromCoords = async locationObj => {
   const lat = locationObj.getLat();
   const lon = locationObj.getLon();
@@ -29,6 +32,7 @@ export const getWeatherFromCoords = async locationObj => {
   }
 };
 
+// Get coordinates
 export const getCoordsFromApi = async (entryText, units) => {
   const regex = /^\d+$/g;
   const flag = regex.test(entryText) ? 'zip' : 'q';
@@ -43,6 +47,7 @@ export const getCoordsFromApi = async (entryText, units) => {
   }
 };
 
+// Trim text whitespace
 export const cleanText = text => {
   const regex = / {2,}/g;
   const entryText = text.replaceAll(regex, ' ').trim();
