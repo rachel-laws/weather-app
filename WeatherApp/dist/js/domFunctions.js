@@ -1,5 +1,3 @@
-import { setLocationObj } from './dataFunctions';
-
 // Search bar placeholder text
 export const setPlaceholderText = () => {
   const input = document.getElementById('searchBar__text');
@@ -75,7 +73,9 @@ export const updateDisplay = (weatherJson, locationObj) => {
     locationObj.getUnit()
   );
 
+  displayCurrentConditions(currentConditionsArray);
   // Daily forecast
+
   setFocusOnSearch();
 
   fadeDisplay();
@@ -213,6 +213,7 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
   return [icon, temp, desc, feels, maxTemp, minTemp, humidity, wind];
 };
 
+// Weather icon divs
 const createMainImgDiv = (icon, altText) => {
   const iconDiv = createElement('div', 'icon');
   iconDiv.id = 'icon';
@@ -223,6 +224,7 @@ const createMainImgDiv = (icon, altText) => {
   return iconDiv;
 };
 
+// Create div
 const createElement = (elementType, divClassName, divText, unit) => {
   const div = document.createElement(elementType);
   div.className = divClassName;
@@ -231,10 +233,70 @@ const createElement = (elementType, divClassName, divText, unit) => {
   }
   if (divClassName === 'temp') {
     const unitDiv = document.createElement('div');
-    unitDiv.className('unit');
+    unitDiv.classList.add('unit');
     unitDiv.textContent = unit;
     div.appendChild(unitDiv);
   }
   return div;
 };
 
+// Set weather icon
+const translateIconToFA = icon => {
+  const i = document.createElement('i');
+  const firstTwoChars = icon.slice(0, 2);
+  const lastChar = icon.slice(2);
+  switch (firstTwoChars) {
+    case '01':
+      if (lastChar === 'd') {
+        i.classList.add('far', 'fa-sun');
+      } else {
+        i.classList.add('far', 'fa-moon');
+      }
+      break;
+    case '02':
+      if (lastChar === 'd') {
+        i.classList.add('fas', 'fa-cloud-sun');
+      } else {
+        i.classList.add('fas', 'fa-cloud-moon');
+      }
+      break;
+    case '03':
+      i.classList.add('fas', 'fa-cloud');
+      break;
+    case '04':
+      i.classList.add('fas', 'fa-cloud-meatball');
+      break;
+    case '09':
+      i.classList.add('fas', 'fa-cloud-rain');
+      break;
+    case '10':
+      if (lastChar === 'd') {
+        i.classList.add('fas', 'fa-cloud-sun-rain');
+      } else {
+        i.classList.add('fas', 'fa-cloud-moon-rain');
+      }
+      break;
+    case '11':
+      i.classList.add('fas', 'fa-poo-storm');
+      break;
+    case '13':
+      i.classList.add('fas', 'fa-snowflake');
+      break;
+    case '50':
+      i.classList.add('fas', 'fa-smog');
+      break;
+    default:
+      i.classList.add('far', 'fa-question-circle');
+  }
+  return i;
+};
+
+// Display current conditions
+const displayCurrentConditions = currentConditionsArray => {
+  const currentConditionsContainer = document.getElementById(
+    'currentForecast__conditions'
+  );
+  currentConditionsArray.forEach(currentConditions => {
+    currentConditionsContainer.appendChild(currentConditions);
+  });
+};
