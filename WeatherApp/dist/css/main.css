@@ -13,12 +13,6 @@ html {
   background-repeat: no-repeat;
   color: #e2e2e2;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-}
-@media only screen and (min-width: 768px) {
-  html {
-    font-size: 18px;
-  }
 }
 
 body {
@@ -72,7 +66,6 @@ h2::before {
   min-width: 260px;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   h2::before {
@@ -89,7 +82,6 @@ h2::after {
   inset: 31px 0 0;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   h2::after {
@@ -102,9 +94,22 @@ img {
 }
 
 hr {
+  position: relative;
   width: 90%;
   margin: auto;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: block;
+  background-color: transparent;
+}
+
+hr::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 48%;
+  min-width: 250px;
+  inset: 0;
+  margin: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .none {
@@ -149,7 +154,7 @@ skip-link:active {
 }
 @media only screen and (min-width: 768px) {
   .navButtons button {
-    font-size: 1rem;
+    font-size: 1.5rem;
     min-width: 60px;
     min-height: 60px;
   }
@@ -230,11 +235,12 @@ nav {
   flex-grow: 1;
   justify-content: space-evenly;
   padding: 0 0.25rem 1rem;
+  margin-bottom: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
   nav {
     justify-content: center;
-    gap: 2rem;
+    gap: calc(1rem + 2vw);
   }
 }
 
@@ -253,9 +259,10 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 5/span 3;
+  grid-row: 2/span 4;
   grid-column: 2/span 1;
-  font-size: 6rem;
+  margin-block: 2.5vh;
+  font-size: 7rem;
   letter-spacing: 0;
   text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
@@ -277,8 +284,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 5/span 3;
+  grid-row: 2/span 4;
   grid-column: 3/span 1;
+  margin-block: calc(0.5rem + 5vh);
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .icon {
@@ -286,12 +294,12 @@ nav {
   }
 }
 .currentForecast .currentForecast__conditions .icon i {
-  font-size: 6rem;
+  font-size: 7rem;
   text-shadow: 1px 0 5px rgba(0, 0, 0, 0.4);
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .icon i {
-    font-size: 7rem;
+    font-size: 8rem;
   }
 }
 .currentForecast .currentForecast__conditions .minmaxtemp {
@@ -305,32 +313,33 @@ nav {
 }
 .currentForecast .currentForecast__conditions .feels,
 .currentForecast .currentForecast__conditions .humidity,
-.currentForecast .currentForecast__conditions .wind {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.5rem;
-  font-weight: normal;
-}
+.currentForecast .currentForecast__conditions .wind,
 .currentForecast .currentForecast__conditions .desc {
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-row: 7/span 1;
+  padding-bottom: calc(0.5rem + 1vh);
+}
+@media only screen and (min-height: 800px) {
+  .currentForecast .currentForecast__conditions .feels,
+  .currentForecast .currentForecast__conditions .humidity,
+  .currentForecast .currentForecast__conditions .wind,
+  .currentForecast .currentForecast__conditions .desc {
+    padding-bottom: calc(0.75rem + 2vh);
+  }
+}
+.currentForecast .currentForecast__conditions .desc {
+  grid-row: 9/span 1;
   grid-column: 1/span 4;
+  margin-top: auto;
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .desc {
     grid-row: 5/span 1;
   }
 }
-@media only screen and (min-height: 1080px) {
-  .currentForecast .currentForecast__conditions .desc {
-    margin-top: 2rem;
-  }
-}
 .currentForecast .currentForecast__conditions .feels {
-  grid-row: 8/span 1;
+  grid-row: 10/span 1;
   grid-column: 1/span 4;
 }
 @media only screen and (min-width: 768px) {
@@ -339,7 +348,7 @@ nav {
   }
 }
 .currentForecast .currentForecast__conditions .humidity {
-  grid-row: 9/span 1;
+  grid-row: 11/span 1;
   grid-column: 1/span 4;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -349,10 +358,9 @@ nav {
   }
 }
 .currentForecast .currentForecast__conditions .wind {
-  grid-row: 10/span 1;
+  grid-row: 12/span 1;
   grid-column: 1/span 4;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
   .currentForecast .currentForecast__conditions .wind {
@@ -375,8 +383,7 @@ nav {
   align-items: center;
   flex-grow: 1;
   justify-content: space-evenly;
-  margin-block: 1.5rem;
-  padding: 0.5rem 0;
+  margin-block: 1rem;
   color: #e2e2e2;
 }
 .dailyForecast .dailyForecast__contents .forecastDay {

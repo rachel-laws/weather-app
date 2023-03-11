@@ -219,7 +219,7 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
   const wind = createElement(
     'div',
     'wind',
-    `Wind ${Math.round(Number(weatherObj.current.wind_speed))} ${windUnit}`
+    `Wind ${Math.round(Number(weatherObj.current.wind_speed))}${windUnit}`
   );
 
   return [minMaxTemp, icon, temp, desc, feels, humidity, wind];
@@ -276,7 +276,7 @@ const translateIconToFA = icon => {
       i.classList.add('fas', 'fa-cloud');
       break;
     case '04':
-      i.classList.add('fas', 'fa-cloud-meatball');
+      i.classList.add('fas', 'fa-cloud');
       break;
     case '09':
       i.classList.add('fas', 'fa-cloud-rain');
@@ -289,13 +289,13 @@ const translateIconToFA = icon => {
       }
       break;
     case '11':
-      i.classList.add('fas', 'fa-poo-storm');
+      i.classList.add('fas', 'fa-cloud-bolt');
       break;
     case '13':
       i.classList.add('fas', 'fa-snowflake');
       break;
     case '50':
-      i.classList.add('fas', 'fa-smog');
+      i.classList.add('fas', 'fa-cloud-smog');
       break;
     default:
       i.classList.add('far', 'fa-question-circle');

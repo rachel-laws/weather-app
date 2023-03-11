@@ -10,9 +10,10 @@
     .temp {
       position: relative;
       @include flexCenter;
-      grid-row: 5 / span 3;
+      grid-row: 2 / span 4;
       grid-column: 2 / span 1;
-      font-size: 6rem;
+      margin-block: 2.5vh;
+      font-size: 7rem;
       letter-spacing: 0;
       text-shadow: 1px 0 5px $text-shadow-color;
       @include mqw(768px) {
@@ -24,7 +25,6 @@
         position: absolute;
         top: 30%;
         left: 80%;
-
         font-size: 1.65rem;
         color: $fade-color;
         text-shadow: none;
@@ -33,17 +33,18 @@
 
     .icon {
       @include flexCenter;
-      grid-row: 5 / span 3;
+      grid-row: 2 / span 4;
       grid-column: 3 / span 1;
+      margin-block: calc(0.5rem + 5vh);
       @include mqw(768px) {
         grid-row: 3 / span 2;
       }
 
       i {
-        font-size: 6rem;
+        font-size: 7rem;
         text-shadow: 1px 0 5px $text-shadow-color;
         @include mqw(768px) {
-          font-size: 7rem;
+          font-size: 8rem;
         }
       }
     }
@@ -58,28 +59,27 @@
 
     .feels,
     .humidity,
-    .wind {
+    .wind,
+    .desc {
       @include flexCenter;
-      padding-top: 0.5rem;
-      font-weight: normal;
+      padding-bottom: calc(0.5rem + 1vh);
+
+      @include mqh(800px) {
+        padding-bottom: calc(0.75rem + 2vh);
+      }
     }
 
     .desc {
-      @include flexCenter;
-      grid-row: 7 / span 1;
+      grid-row: 9 / span 1;
       grid-column: 1 / span 4;
-
+      margin-top: auto;
       @include mqw(768px) {
         grid-row: 5 / span 1;
-      }
-
-      @include mqh(1080px) {
-        margin-top: 2rem;
       }
     }
 
     .feels {
-      grid-row: 8 / span 1;
+      grid-row: 10 / span 1;
       grid-column: 1 / span 4;
       @include mqw(768px) {
         grid-row: 6 / span 1;
@@ -87,7 +87,7 @@
     }
 
     .humidity {
-      grid-row: 9 / span 1;
+      grid-row: 11 / span 1;
       grid-column: 1 / span 4;
       color: $fade-color;
       @include mqw(768px) {
@@ -96,10 +96,9 @@
     }
 
     .wind {
-      grid-row: 10 / span 1;
+      grid-row: 12 / span 1;
       grid-column: 1 / span 4;
       color: $fade-color;
-      margin-bottom: 0.5rem;
       @include mqw(768px) {
         grid-row: 8 / span 1;
       }
