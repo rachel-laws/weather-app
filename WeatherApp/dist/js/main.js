@@ -121,7 +121,7 @@ const displayHomeLocationWeather = home => {
 // Save new home location
 const saveLocation = () => {
   if (currentLoc.getLat() && currentLoc.getLon()) {
-    const saveIcon = document.querySelector('.fa-download');
+    const saveIcon = document.querySelector('.fa-map-location-dot');
     addSpinner(saveIcon);
     const location = {
       lat: currentLoc.getLat(),
@@ -136,7 +136,7 @@ const saveLocation = () => {
 
 // Toggle temperature units (°F | °C)
 const setUnitPref = () => {
-  const unitIcon = document.querySelector('.fa-square-poll-vertical');
+  const unitIcon = document.querySelector('.fa-temperature-quarter');
   addSpinner(unitIcon);
   currentLoc.toggleUnit();
   updateDataDisplay(currentLoc);

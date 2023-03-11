@@ -2,13 +2,9 @@
   .currentForecast__conditions {
     display: grid;
     margin: 0.5rem auto;
-    font-size: 1.2rem;
-    @include mqw(375px) {
-      font-size: 1.3rem;
-    }
+    font-size: 1.3rem;
 
     .temp {
-      position: relative;
       @include flexCenter;
       grid-row: 2 / span 4;
       grid-column: 2 / span 1;
@@ -21,13 +17,11 @@
         grid-row: 3 / span 2;
       }
 
-      .unit {
-        position: absolute;
-        top: 30%;
-        left: 80%;
+      .smallText {
         font-size: 1.65rem;
         color: $fade-color;
         text-shadow: none;
+        vertical-align: text-top;
       }
     }
 

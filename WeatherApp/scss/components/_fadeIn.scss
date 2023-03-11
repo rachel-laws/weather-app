@@ -1,3 +1,5 @@
+// Fade in display
+
 .zero-vis {
   visibility: hidden;
   opacity: 0;
@@ -15,5 +17,6 @@
 .fade-in {
   visibility: visible;
   opacity: 1;
-  animation: fadeInOpacity 1.5s 1 ease-in;
+  animation: fadeInOpacity 1000ms 1 ease-in;
+  // 1000ms to match button spinning anim length
 }

@@ -9,7 +9,7 @@ html {
   background-size: cover;
   background-repeat: none;
   background-blend-mode: overlay;
-  background-position: 60%;
+  background-position: 68%;
   background-repeat: no-repeat;
   color: $font-color;
   font-family: 'Roboto', sans-serif;
@@ -56,7 +56,7 @@ h2::before {
   content: '';
   position: absolute;
   display: block;
-  inset: 28px 0 0;
+  inset: 32px 0 0;
   width: 50%;
   min-width: 260px;
   margin: auto;
@@ -72,7 +72,7 @@ h2::after {
   display: block;
   width: 48%;
   min-width: 250px;
-  inset: 31px 0 0;
+  inset: 35px 0 0;
 
   margin: auto;
   border-bottom: 1px solid $border-color;
@@ -90,18 +90,16 @@ hr {
   width: 90%;
   margin: auto;
   display: block;
-  background-color: transparent;
-  // border-bottom: 1px solid $border-color;
+  color: transparent;
 }
 
 hr::after {
   content: '';
   position: absolute;
-  display: block;
   width: 48%;
-  min-width: 250px;
-  inset: 0;
+  bottom: 10px;
   margin: auto;
+  height: 1px;
   border-bottom: 1px solid $border-color;
 }
 

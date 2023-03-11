@@ -59,40 +59,41 @@
     <a href="#dailyForecast" class="skip-link">Go to daily weather forecast</a>
 
     <nav id="navButtons" class='navButtons fade-in'>
-      <button id="home"
-        class="navButton"
-        title="Home Weather"
-        aria-label="Get the current weather conditions for your home location">
-        <i class="fas fa-home"></i>
-        <i class="none fas fa-sync fa-spin"></i>
-      </button>
+
       <button id="getLocation"
         class="navButton"
-        title="Get Location"
+        title="Get current location"
         aria-label="Get the current weather conditions for your location">
         <i class="fas fa-map-marker-alt"></i>
-        <i class="none fas fa-sync fa-spin"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
+      </button>
+      <button id="saveLocation"
+        class="navButton"
+        title="Save new home location"
+        aria-label="Save the current location as your home location">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
+      </button>
+      <button id="home"
+        class="navButton"
+        title="View home weather"
+        aria-label="Get the current weather conditions for your home location">
+        <i class="fas fa-home"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
+      </button>
+      <button id="unit"
+        class="navButton"
+        title="Toggle units"
+        aria-label="Toggle between metric and imperial temperature units">
+        <i class="fa-solid fa-temperature-quarter"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
       </button>
       <button id="refresh"
         class="navButton"
         title="Refresh weather conditions"
         aria-label="Refresh the current weather conditions">
         <i class="fas fa-sync-alt"></i>
-        <i class="fas fa-sync fa-spin none"></i>
-      </button>
-      <button id="unit"
-        class="navButton"
-        title="Toggle temperature units"
-        aria-label="Toggle between metric and imperial temperature units">
-        <i class="fa-solid fa-square-poll-vertical"></i>
-        <i class="fas fa-sync fa-spin none"></i>
-      </button>
-      <button id="saveLocation"
-        class="navButton"
-        title="Save Location"
-        aria-label="Save the current location as your home location">
-        <i class="fa-solid fa-download"></i>
-        <i class="none fas fa-sync fa-spin"></i>
+        <i class="fa-solid fa-sync-alt fa-spin none"></i>
       </button>
 
     </nav>

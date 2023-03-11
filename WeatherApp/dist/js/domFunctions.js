@@ -9,7 +9,7 @@ export const setPlaceholderText = () => {
 // Animate button
 export const addSpinner = element => {
   animateButton(element);
-  setTimeout(animateButton, 1250, element);
+  setTimeout(animateButton, 1000, element);
 };
 
 const animateButton = element => {
@@ -189,13 +189,12 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
     )}° • Low ${Math.round(Number(weatherObj.daily[0].temp.min))}°`
   );
 
-  // Temperature
-  const temp = createElement(
-    'div',
-    'temp',
-    `${Math.round(Number(weatherObj.current.temp))}`,
-    tempUnit
+  // Temp and temp units
+  const temp = createElement('div', 'temp');
+  temp.appendChild(
+    document.createTextNode(Math.round(Number(weatherObj.current.temp)))
   );
+  temp.appendChild(createElement('span', 'smallText', tempUnit));
 
   // Description
   const properDesc = toProperCase(weatherObj.current.weather[0].description);
@@ -231,7 +230,7 @@ const createMainImgDiv = (icon, altText) => {
   iconDiv.id = 'icon';
   const faIcon = translateIconToFA(icon);
   faIcon.ariaHidden = true;
-  faIcon.title = altText;
+  faIcon.title = toProperCase(altText);
   iconDiv.appendChild(faIcon);
   return iconDiv;
 };
