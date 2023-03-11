@@ -1,7 +1,7 @@
 // Search bar placeholder text
 export const setPlaceholderText = () => {
   const input = document.getElementById('searchBar__text');
-  window.innerWidth < 400
+  window.innerWidth < 350
     ? (input.placeholder = 'City, State, Country')
     : (input.placeholder = 'City, State, Country or Zip Code');
 };
@@ -171,7 +171,7 @@ const setFocusOnSearch = () => {
   document.getElementById('searchBar__text').focus();
 };
 
-// Current conditions
+// Set current conditions
 const createCurrentConditionsDivs = (weatherObj, unit) => {
   const tempUnit = unit === 'imperial' ? '°F' : '°C';
   const windUnit = unit === 'imperial' ? 'mph' : 'm/s';
@@ -218,7 +218,7 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
   const wind = createElement(
     'div',
     'wind',
-    `Wind ${Math.round(Number(weatherObj.current.wind_speed))}${windUnit}`
+    `Wind ${Math.round(Number(weatherObj.current.wind_speed))} ${windUnit}`
   );
 
   return [minMaxTemp, icon, temp, desc, feels, humidity, wind];

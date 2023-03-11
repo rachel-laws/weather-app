@@ -6,44 +6,46 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <!--TODO: Change title -->
   <title>Weather App</title>
+  <!--TODO: Add to this description -->
   <meta name="description" content="A responsive and accessible weather app using OpenWeather API." />
-  <!--TODO: Add to this description-->
 </head>
 
 <body>
 
   <header>
+    <!--TODO: Change this text -->
     <h1 class="offscreen">Weather App powered by Open Weather API</h1>
   </header>
 
   <main class='fade-in'>
 
     <section id="searchBar" class='searchBar fade-in'>
+
       <form id="searchBar__form" action="" role="search">
+
         <label for="searchBar__text" class="offscreen"></label>
-        <input
-          id="searchBar__text"
-          class='searchBar__text'
+
+        <input id="searchBar__text" class='searchBar__text'
           type="text"
           name="search"
           role="searchbox"
           size='40'
           autocomplete="off"
           placeholder="City, State, Country" />
-        <button
-          id="searchBar__button"
-          class='searchBar__button'
+
+        <button id="searchBar__button" class='searchBar__button'
           title="Enter Location"
           aria-label="Enter Zip Code or City, State, and Country to retrieve weather conditions">
           <i class="fa-solid fa-magnifying-glass searchBar__icon"></i>
           <i class="fas fa-sync fa-spin search-sync none"></i>
         </button>
+
       </form>
+
     </section>
 
     <a href="#currentForecast" class="skip-link">Go to current weather conditions</a>
@@ -51,9 +53,10 @@
     <section id="currentForecast" class='currentForecast fade-in'
       role="region"
       aria-labelledby="currentForecast__location">
+
       <h2 id="currentForecast__location">Current Weather Conditions</h2>
-      <div id="currentForecast__conditions" class='currentForecast__conditions'>
-      </div>
+      <div id="currentForecast__conditions" class='currentForecast__conditions'></div>
+
     </section>
 
     <a href="#dailyForecast" class="skip-link">Go to daily weather forecast</a>
@@ -81,13 +84,6 @@
         <i class="fas fa-home"></i>
         <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
       </button>
-      <button id="unit"
-        class="navButton"
-        title="Toggle units"
-        aria-label="Toggle between metric and imperial temperature units">
-        <i class="fa-solid fa-temperature-quarter"></i>
-        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
-      </button>
       <button id="refresh"
         class="navButton"
         title="Refresh weather conditions"
@@ -95,6 +91,14 @@
         <i class="fas fa-sync-alt"></i>
         <i class="fa-solid fa-sync-alt fa-spin none"></i>
       </button>
+      <button id="unit"
+        class="navButton"
+        title="Toggle units"
+        aria-label="Toggle between metric and imperial temperature units">
+        <i class="fa-solid fa-temperature-quarter"></i>
+        <i class="fa-solid fa-arrow-rotate-right fa-spin none"></i>
+      </button>
+
 
     </nav>
 
@@ -107,6 +111,7 @@
       <div id="dailyForecast__contents" class='dailyForecast__contents'></div>
     </section>
 
+    <!-- Screenreader -->
     <p id="confirmation" class="offscreen" aria-live="assertive"></p>
 
   </main>

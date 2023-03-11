@@ -1,55 +1,55 @@
 .currentForecast {
   .currentForecast__conditions {
     display: grid;
+    grid-template-columns: repeat(8, 1fr);
     margin: 0.5rem auto;
-    font-size: 1.3rem;
+
+    font-size: 1.1rem;
+    @include mqw(768px) {
+      font-size: 1.3rem;
+    }
+
+    .minmaxtemp {
+      @include flexCenter;
+      grid-row: 1;
+      grid-column: 1 / span 9;
+      color: $button-text-color;
+      margin-top: 8px;
+    }
 
     .temp {
       @include flexCenter;
-      grid-row: 2 / span 4;
-      grid-column: 2 / span 1;
+      grid-row: 2 / span 2;
+      grid-column: 3 / span 2;
+
       margin-block: 2.5vh;
-      font-size: 7rem;
+      margin-right: 0.75rem;
+
+      font-size: clamp(6rem, 20vw, 8rem);
+
       letter-spacing: 0;
       text-shadow: 1px 0 5px $text-shadow-color;
-      @include mqw(768px) {
-        font-size: 8rem;
-        grid-row: 3 / span 2;
-      }
 
+      // Temp unit
       .smallText {
-        font-size: 1.65rem;
+        font-size: 1.75rem;
         color: $fade-color;
         text-shadow: none;
-        vertical-align: text-top;
+        transform: translateY(-30px);
       }
     }
 
     .icon {
       @include flexCenter;
-      grid-row: 2 / span 4;
-      grid-column: 3 / span 1;
+      grid-row: 2 / span 2;
+      grid-column: 5 / span 2;
       margin-block: calc(0.5rem + 5vh);
-      @include mqw(768px) {
-        grid-row: 3 / span 2;
-      }
+      margin-left: 0.75rem;
 
       i {
-        font-size: 7rem;
+        font-size: clamp(6rem, 20vw, 8rem);
         text-shadow: 1px 0 5px $text-shadow-color;
-        @include mqw(768px) {
-          font-size: 8rem;
-        }
       }
-    }
-
-    .minmaxtemp {
-      @include flexCenter;
-      font-size: 1.2rem;
-      grid-row: 1 / span 1;
-      grid-column: 1 / span 4;
-      color: $button-text-color;
-      margin-top: 8px;
     }
 
     .feels,
@@ -57,46 +57,28 @@
     .wind,
     .desc {
       @include flexCenter;
-      padding-bottom: calc(0.5rem + 1vh);
-
-      @include mqh(800px) {
-        padding-bottom: calc(0.75rem + 2vh);
-      }
+      grid-column: 1 / span 9;
+      padding-bottom: 2vh;
     }
 
     .desc {
-      grid-row: 9 / span 1;
-      grid-column: 1 / span 4;
-      margin-top: auto;
-      @include mqw(768px) {
-        grid-row: 5 / span 1;
-      }
+      grid-row: 4 / span 1;
+      color: $button-text-color;
     }
 
     .feels {
-      grid-row: 10 / span 1;
-      grid-column: 1 / span 4;
-      @include mqw(768px) {
-        grid-row: 6 / span 1;
-      }
+      grid-row: 5 / span 1;
+      color: $button-text-color;
     }
 
     .humidity {
-      grid-row: 11 / span 1;
-      grid-column: 1 / span 4;
+      grid-row: 6 / span 1;
       color: $fade-color;
-      @include mqw(768px) {
-        grid-row: 7 / span 1;
-      }
     }
 
     .wind {
-      grid-row: 12 / span 1;
-      grid-column: 1 / span 4;
+      grid-row: 7 / span 1;
       color: $fade-color;
-      @include mqw(768px) {
-        grid-row: 8 / span 1;
-      }
     }
   }
 }

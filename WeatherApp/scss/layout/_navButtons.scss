@@ -4,6 +4,7 @@ nav {
   justify-content: space-evenly;
   padding: 0 0.25rem 1rem;
   margin-bottom: 0.5rem;
+
   @include mqw(768px) {
     justify-content: center;
     gap: calc(1rem + 2vw);

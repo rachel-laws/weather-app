@@ -1,19 +1,23 @@
-// verlay
+// COLORS
 
-$overlay-color: rgba(0 0 0 / 0.4);
-$overlay-mobile-color: rgba(0 0 0 / 0.35);
-$tint-color: rgba(42 69 110 / 0.4);
-
+// Text
 $font-color: #e9e9e9;
+$button-text-color: rgba(255 255 255 / 0.8);
+$fade-color: rgba(255 255 255 / 0.6);
 
+// Shadows
+$text-shadow-color: rgba(0 0 0 / 0.2);
+$shadow-color: rgba(0 0 0 / 0.25);
+
+// Buttons
 $button-color: rgba(0 0 0 / 0.15);
 $button-color-hover: rgba(0 0 0 / 0.2);
+
+// Borders
 $border-color: rgba(255 255 255 / 0.5);
-$button-text-color: rgba(255 255 255 / 0.8);
 
-$container-bg-color: #f2f2f2;
+// Overlay
+$overlay-color: rgba(0 0 0 / 0.4);
 
-$shadow-color: #fff;
-$text-shadow-color: rgba(0 0 0 / 0.2);
-
-$fade-color: rgba(255 255 255 / 0.6);
+// BG Image Tint
+$tint-color: rgba(35, 69, 120, 0.4);

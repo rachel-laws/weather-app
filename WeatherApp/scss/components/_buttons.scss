@@ -1,12 +1,15 @@
 .navButtons button {
   min-width: 48px;
   min-height: 48px;
-  color: $button-text-color;
+
   border-radius: 80px;
-  outline: none;
   border: 1px solid transparent;
+  outline: none;
+
   font-size: 1.25rem;
   font-weight: 900;
+  color: $button-text-color;
+
   background-color: $button-color;
 
   @include mqw(768px) {
@@ -23,9 +26,11 @@ button:hover {
 button:hover,
 button:focus {
   transition: 250ms ease;
+
   transform: scale(1.1);
+
+  color: $font-color;
   border: 1px solid $border-color;
   background-color: $button-color-hover;
   box-shadow: 4px 2px 6px $text-shadow-color;
-  color: $font-color;
 }

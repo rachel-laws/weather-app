@@ -5,14 +5,12 @@
 }
 
 html {
-  background: $tint-color;
-  background-size: cover;
-  background-repeat: none;
+  background: $tint-color; // Note: Needs to be at top
   background-blend-mode: overlay;
-  background-position: 68%;
+  background-size: cover;
   background-repeat: no-repeat;
-  color: $font-color;
-  font-family: 'Roboto', sans-serif;
+  background-repeat: none;
+  background-position: 68%;
 }
 
 body {
@@ -20,19 +18,25 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif; // TODO: Change font
+  color: $font-color;
+
+  user-select: none;
 }
 
 main {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: 100vw;
-  background-color: $overlay-mobile-color;
+
+  background-color: $overlay-color;
 
   @include mqw(768px) {
     width: 70vw;
     max-width: 800px;
-    background-color: $overlay-color;
+
+    // For larger screens only so BG image can be seen
     @supports (backdrop-filter: blur(5px)) {
       backdrop-filter: blur(5px);
     }
@@ -42,25 +46,31 @@ main {
 h2 {
   position: relative;
   margin-bottom: 1rem;
+
   text-align: center;
-  text-shadow: 2px 2px 3px $text-shadow-color;
-  font-size: 1.2rem;
   font-weight: normal;
+  font-size: 1.25rem;
+  text-shadow: 2px 2px 3px $text-shadow-color;
 
   @include mqw(768px) {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
+}
+
+h2::before,
+h2::after {
+  position: absolute;
+  display: block;
+  margin: auto;
+  border-bottom: 1px solid $border-color;
 }
 
 h2::before {
   content: '';
-  position: absolute;
-  display: block;
   inset: 32px 0 0;
-  width: 50%;
-  min-width: 260px;
-  margin: auto;
-  border-bottom: 1px solid $border-color;
+  width: 40%;
+  min-width: 255px;
+
   @include mqw(768px) {
     inset: 35px 0 0;
   }
@@ -68,21 +78,13 @@ h2::before {
 
 h2::after {
   content: '';
-  position: absolute;
-  display: block;
-  width: 48%;
-  min-width: 250px;
-  inset: 35px 0 0;
+  width: 38%;
+  min-width: 240px;
+  inset: 35.5px 0 0;
 
-  margin: auto;
-  border-bottom: 1px solid $border-color;
   @include mqw(768px) {
     inset: 38px 0 0;
   }
-}
-
-img {
-  display: block;
 }
 
 hr {
@@ -101,6 +103,10 @@ hr::after {
   margin: auto;
   height: 1px;
   border-bottom: 1px solid $border-color;
+}
+
+img {
+  display: block;
 }
 
 .none {
