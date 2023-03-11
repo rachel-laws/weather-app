@@ -310,6 +310,7 @@ nav {
   grid-row: 1/span 1;
   grid-column: 1/span 4;
   color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
 }
 .currentForecast .currentForecast__conditions .feels,
 .currentForecast .currentForecast__conditions .humidity,

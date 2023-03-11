@@ -16,10 +16,10 @@ export const getHomeLocation = () => {
 
 // Get weather from location
 export const getWeatherFromCoords = async locationObj => {
-  const lat = locationObj.getLat();
+ const lat = locationObj.getLat();
   const lon = locationObj.getLon();
   const units = locationObj.getUnit();
-  const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${WEATHER_API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${WEATHER_API_KEY}`;
   try {
     const weatherStream = await fetch(url);
     const weatherJson = await weatherStream.json();
@@ -27,13 +27,13 @@ export const getWeatherFromCoords = async locationObj => {
   } catch (err) {
     console.error(err);
   }
-};
+}
 
 // Get coordinates
 export const getCoordsFromApi = async (entryText, units) => {
-  const regex = /^\d+$/g;
-  const flag = regex.test(entryText) ? 'zip' : 'q';
-  const url = `https://api.openweathermap.org/data/3.0/onecall?${flag}=${entryText}&units=${units}&appid=${WEATHER_API_KEY}`;
+ const regex = /^\d+$/g;
+  const flag = regex.test(entryText) ? "zip" : "q";
+  const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${units}&appid=${WEATHER_API_KEY}`;
   const encodedUrl = encodeURI(url);
   try {
     const dataStream = await fetch(encodedUrl);
@@ -42,7 +42,7 @@ export const getCoordsFromApi = async (entryText, units) => {
   } catch (err) {
     console.error(err.stack);
   }
-};
+}
 
 // Trim text whitespace
 export const cleanText = text => {

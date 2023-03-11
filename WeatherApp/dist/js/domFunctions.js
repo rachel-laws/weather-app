@@ -186,7 +186,7 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
     'minmaxtemp',
     `High ${Math.round(
       Number(weatherObj.daily[0].temp.max)
-    )}° • Low ${Math.round(Number(weatherObj.daily[0].temp.min))}`
+    )}° • Low ${Math.round(Number(weatherObj.daily[0].temp.min))}°`
   );
 
   // Temperature
@@ -260,9 +260,9 @@ const translateIconToFA = icon => {
   switch (firstTwoChars) {
     case '01':
       if (lastChar === 'd') {
-        i.classList.add('far', 'fa-sun');
+        i.classList.add('fas', 'fa-sun');
       } else {
-        i.classList.add('far', 'fa-moon');
+        i.classList.add('fas', 'fa-moon');
       }
       break;
     case '02':
@@ -295,10 +295,10 @@ const translateIconToFA = icon => {
       i.classList.add('fas', 'fa-snowflake');
       break;
     case '50':
-      i.classList.add('fas', 'fa-cloud-smog');
+      i.classList.add('fas', 'fa-smog');
       break;
     default:
-      i.classList.add('far', 'fa-question-circle');
+      i.classList.add('fas', 'fa-question-circle');
   }
   return i;
 };
