@@ -19,8 +19,8 @@ import CurrentLocation from './CurrentLocation.js';
 
 const currentLoc = new CurrentLocation();
 
+// Event Listeners
 const initApp = () => {
-  // Event Listeners
   const locationEntry = document.getElementById('searchBar__form');
   locationEntry.addEventListener('submit', submitNewLocation);
 
