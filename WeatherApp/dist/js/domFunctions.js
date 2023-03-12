@@ -323,7 +323,7 @@ const createDailyForecastDivs = dayWeather => {
   const dayAbbreviation = createElement(
     'p',
     'dayAbbreviation',
-    dayAbbreviationText
+    `${dayAbbreviationText}.`
   );
   const dayIcon = createDailyForecastIcon(
     dayWeather.weather[0].icon,

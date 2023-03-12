@@ -10,7 +10,7 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-repeat: none;
-  background-position: 68%;
+  background-position: 67%;
 }
 
 body {
@@ -18,17 +18,19 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
+
   font-family: 'Roboto', sans-serif; // TODO: Change font
   color: $font-color;
 
-  user-select: none;
+  user-select: none; // Check if best practice
 }
 
 main {
-  width: 100vw;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
+  width: 100vw;
 
   background-color: $overlay-color;
 
@@ -49,60 +51,44 @@ h2 {
 
   text-align: center;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   text-shadow: 2px 2px 3px $text-shadow-color;
 
   @include mqw(768px) {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 }
 
 h2::before,
 h2::after {
+  content: '';
   position: absolute;
   display: block;
   margin: auto;
-  border-bottom: 1px solid $border-color;
+  border-block: 1px solid $border-color;
+  border-radius: 100%;
 }
 
 h2::before {
-  content: '';
-  inset: 32px 0 0;
   width: 40%;
+  inset: 35px 0 0;
   min-width: 255px;
-
-  @include mqw(768px) {
-    inset: 35px 0 0;
-  }
 }
 
 h2::after {
-  content: '';
-  width: 38%;
-  min-width: 240px;
-  inset: 35.5px 0 0;
-
-  @include mqw(768px) {
-    inset: 38px 0 0;
-  }
+  width: 35%;
+  inset: 39px 0 0;
+  min-width: 230px;
 }
 
 hr {
   position: relative;
-  width: 90%;
-  margin: auto;
   display: block;
-  color: transparent;
-}
-
-hr::after {
-  content: '';
-  position: absolute;
-  width: 48%;
-  bottom: 10px;
   margin: auto;
-  height: 1px;
-  border-bottom: 1px solid $border-color;
+  width: 90%;
+  background-color: $border-color;
+  border-block: 1px solid $border-color;
+  border-radius: 100%;
 }
 
 img {

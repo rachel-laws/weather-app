@@ -16,7 +16,7 @@ export const getHomeLocation = () => {
 
 // Get weather from location
 export const getWeatherFromCoords = async locationObj => {
- const lat = locationObj.getLat();
+  const lat = locationObj.getLat();
   const lon = locationObj.getLon();
   const units = locationObj.getUnit();
   const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=${WEATHER_API_KEY}`;
@@ -27,12 +27,12 @@ export const getWeatherFromCoords = async locationObj => {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 // Get coordinates
 export const getCoordsFromApi = async (entryText, units) => {
- const regex = /^\d+$/g;
-  const flag = regex.test(entryText) ? "zip" : "q";
+  const regex = /^\d+$/g;
+  const flag = regex.test(entryText) ? 'zip' : 'q';
   const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${units}&appid=${WEATHER_API_KEY}`;
   const encodedUrl = encodeURI(url);
   try {
@@ -42,12 +42,26 @@ export const getCoordsFromApi = async (entryText, units) => {
   } catch (err) {
     console.error(err.stack);
   }
-}
+};
 
 // Trim text whitespace
 export const cleanText = text => {
-  const regex = / {2,}/g;
-  const entryText = text.replaceAll(regex, ' ').trim();
+  const trimRegex = / {2,}/g;
+  let entryText = text.replaceAll(trimRegex, ' ').trim();
+
+  // TODO: Fix this, it's broken as hell
+
+  // const words = entryText.split(' ');
+  // if (words.length <= 3) {
+  //   entryText = words.join(', ');
+  // } else {
+  //   for (let i = 0; i < words.length; i++) {
+  //     if (words[i].length === 2 && !words.includes(`${words[i]},`)) {
+  //       words[i] = `, ${words[i]}`;
+  //     }
+  //   }
+  //   entryText = words.join(' ');
+  // } 
   return entryText;
 };
 
